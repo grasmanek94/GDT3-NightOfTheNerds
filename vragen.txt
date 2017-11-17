@@ -1,9 +1,0 @@
-- wat is het budget voor mogelijke prijzen?
-	- indien ja -> hoe regelen we de loting / scoreboard? zelf in de handen? percentage?
-- tijdschem's / pauzes? Hoe lang moet het spel "te spelen" zijn?
-- Idee is om een progressief spel te maken waar de progressie voort kan worden gezet door het scannen van strategisch geplaatste QR codes bij de routes/workshops.
-- wat wordt er precies verwacht? of hebben wij het helemaal in de handen wat voor spel wij maken?
-- Wat is Ellie en hoe koppelen we onze app daar aan? Waar is de documentatie / informatie? Dit is een voorwaarde van het project.
-- Met wie contact bij spoed?
-- Wat zijn de beschikbare routes en welke workshops zijn er? Wat zijn de precieze thema's?
-- Is er zeker weten wifi beschikbaar?
