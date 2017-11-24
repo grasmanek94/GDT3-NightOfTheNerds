@@ -159,6 +159,15 @@ Prefab:
       propertyPath: m_TagString
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 1407927059021254, guid: 3bd31bafd72708943a5a9f37b9d23343, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 68229106267339436, guid: 3bd31bafd72708943a5a9f37b9d23343,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bd31bafd72708943a5a9f37b9d23343, type: 2}
   m_IsPrefabParent: 0
@@ -234,7 +243,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1780475878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.23, y: -0.08, z: -7.8}
+  m_LocalPosition: {x: -1.25, y: -0.06, z: 0}
   m_LocalScale: {x: 0.97171575, y: 0.9717156, z: 0.9717156}
   m_Children: []
   m_Father: {fileID: 0}
@@ -437,4 +446,4 @@ MonoBehaviour:
   smoothnessYAxis: 0.2
   player: {fileID: 1780475878}
   minimalBounds: {x: 0, y: 0, z: -10}
-  maximalBounds: {x: 20, y: 5, z: -10}
+  maximalBounds: {x: 36, y: 5, z: -10}

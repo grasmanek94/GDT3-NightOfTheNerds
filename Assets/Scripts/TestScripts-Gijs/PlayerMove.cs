@@ -80,6 +80,11 @@ public class PlayerMove : MonoBehaviour {
         }
 
         anim.SetFloat("speed", Mathf.Abs(Input.GetAxis("Horizontal")));
+
+        if (gameObject.transform.position.y < -3)
+        {
+            gameObject.transform.position = new Vector3(0, 0, 0);
+        }
     }
 
     void FixedUpdate()
