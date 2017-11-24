@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 1780475880}
   - component: {fileID: 1780475879}
   - component: {fileID: 1780475883}
-  - component: {fileID: 1780475882}
+  - component: {fileID: 1780475886}
   - component: {fileID: 1780475885}
   - component: {fileID: 1780475881}
   - component: {fileID: 1780475884}
@@ -269,31 +269,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1780475882
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1780475878}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 9f6c019984b7a6f4c9dc834cde0033f0, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.36, y: 0.76}
-    newSize: {x: 0.36, y: 0.76}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.36, y: 0.76}
-  m_EdgeRadius: 0
 --- !u!95 &1780475883
 Animator:
   serializedVersion: 3
@@ -337,7 +312,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000059604645, y: -0.36705232}
+  m_Offset: {x: -0.0029317886, y: -0.36705232}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -348,8 +323,23 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.35081363, y: 0.07169941}
+  m_Size: {x: 0.32149503, y: 0.07169938}
   m_EdgeRadius: 0
+--- !u!70 &1780475886
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1780475878}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 9f6c019984b7a6f4c9dc834cde0033f0, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.36, y: 0.76}
+  m_Direction: 0
 --- !u!1 &2047836580
 GameObject:
   m_ObjectHideFlags: 0
