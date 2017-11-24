@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4227451781128504}
-  - component: {fileID: 114963266131478516}
+  - component: {fileID: 114121713124660314}
   m_Layer: 0
   m_Name: ExampleMap
   m_TagString: Untagged
@@ -52,7 +52,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4766592026011848}
-  - component: {fileID: 114914769900397762}
+  - component: {fileID: 114024518506979618}
   m_Layer: 0
   m_Name: Tile Layer 1
   m_TagString: Untagged
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 4527099549877256}
   - component: {fileID: 33188634514231534}
   - component: {fileID: 23482749576766410}
-  - component: {fileID: 114799063564450556}
+  - component: {fileID: 114373389904410132}
   m_Layer: 0
   m_Name: spritesheet
   m_TagString: Untagged
@@ -147,7 +147,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 06a65a849b4a93848932735853404345, type: 2}
+  - {fileID: 2100000, guid: 97078d91b26e1934088e79cc9e512041, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -173,7 +173,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1852095155158450}
-  m_Mesh: {fileID: 4300000, guid: 60b927b1595d0804d8cd2ed362de2240, type: 3}
+  m_Mesh: {fileID: 4300000, guid: ec24ef814bfb9df44bc357507ce2c598, type: 3}
 --- !u!60 &60193449535872706
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -230,18 +230,7 @@ PolygonCollider2D:
       - {x: 7, y: -8.333334}
       - {x: 6.333333, y: -8.333334}
       - {x: 6.333333, y: -7.333333}
---- !u!114 &114799063564450556
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1852095155158450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2402215665c8cd849bd7ffdc9c57af1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114914769900397762
+--- !u!114 &114024518506979618
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -249,11 +238,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1668249245171332}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af9d74727ebd7bf42b692fda21444fb7, type: 3}
+  m_Script: {fileID: 11500000, guid: dc67aafaf5f854143bd944f8a3d57a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Offset: {x: 0, y: 0}
---- !u!114 &114963266131478516
+--- !u!114 &114121713124660314
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -261,7 +250,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1257921443423800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c51f3cd7fea93ef43b737b3bc858266f, type: 3}
+  m_Script: {fileID: 11500000, guid: d35dcf13365933743a2f1b59d37a0b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Orientation: 0
@@ -277,3 +266,14 @@ MonoBehaviour:
   MapWidthInPixels: 3968
   MapHeightInPixels: 3200
   BackgroundColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+--- !u!114 &114373389904410132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1852095155158450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fb3c86e20d59b4c8c3dab8fdcf48f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: spritesheet
-  m_Shader: {fileID: 4800000, guid: aa512906abfa7fd418416b494cc088ce, type: 3}
+  m_Shader: {fileID: 4800000, guid: 7c9d94c2d9e3da44385d3f52215dcc1d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -19,7 +19,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ddc345b08bfcac34791064f545450852, type: 3}
+        m_Texture: {fileID: 2800000, guid: a6fb88eb4ea318e4593d734e2f8dfb0c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
