@@ -141,6 +141,14 @@ public class Player : MonoBehaviour
 		{
 			this.GetComponent<SpriteRenderer>().flipY = true;
 		}
+		if (invulnerable == true)
+		{
+			this.GetComponent<SpriteRenderer>().color = Color.grey;
+		}
+		else
+		{
+			this.GetComponent<SpriteRenderer>().color = Color.white;
+		}
 		if (isGrounded == true)
 		{
 			this.GetComponent<Animator>().SetBool("grounded", true);
