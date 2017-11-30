@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114791641346874250}
   - component: {fileID: 61270654566231048}
   - component: {fileID: 82639946548648096}
-  - component: {fileID: 95757433762246470}
+  - component: {fileID: 95316038913178660}
   m_Layer: 0
   m_Name: Goomba
   m_TagString: Enemy
@@ -117,7 +117,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256343090443784}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.5732613, y: 1.313, z: 0}
+  m_LocalPosition: {x: 6.0157304, y: -2.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4555547052385080}
@@ -354,7 +354,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!95 &95757433762246470
+--- !u!95 &95316038913178660
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -363,7 +363,7 @@ Animator:
   m_GameObject: {fileID: 1256343090443784}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f5a061776c6db6548abc2dc7a1040dfb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0c324ed6e99fb4c4496e9295ce899077, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
