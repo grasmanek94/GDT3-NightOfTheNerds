@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114791641346874250}
   - component: {fileID: 61270654566231048}
   - component: {fileID: 82639946548648096}
+  - component: {fileID: 95757433762246470}
   m_Layer: 0
   m_Name: Goomba
   m_TagString: Enemy
@@ -224,7 +225,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 0.75, y: 0.71875}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -353,6 +354,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95757433762246470
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1256343090443784}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f5a061776c6db6548abc2dc7a1040dfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114068364193493266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -386,9 +404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c20fc5908a6c8439b2349635933a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteLeft: {fileID: 21300000, guid: b8d10a4add37ca04dbc78afc5e49a873, type: 3}
-  spriteRight: {fileID: 21300000, guid: 9f7bafedbd44a744db330734dee8cf56, type: 3}
-  spriteDead: {fileID: 21300000, guid: 8b18a38ec03100e4794813ade9d0295c, type: 3}
   walkSpeed: 0.2
   moveDirection: 0
   dead: 0
@@ -437,7 +452,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b8d10a4add37ca04dbc78afc5e49a873, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 03f274e403b0c114095ac1f403dfe7f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
