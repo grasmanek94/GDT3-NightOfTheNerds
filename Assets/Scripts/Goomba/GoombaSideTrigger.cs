@@ -8,14 +8,7 @@ public class GoombaSideTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (other.GetComponent<Player>().type == Player.PlayerType.Normal)
-            {
-                other.GetComponent<Player>().dead = true;
-            }
-            else if (other.GetComponent<Player>().type == Player.PlayerType.Mushroom)
-            {
-                other.GetComponent<Player>().type = Player.PlayerType.Normal;
-            }
+            other.GetComponent<Player>().Hit();
         }
         else if (other.gameObject.tag == "Level" || other.gameObject.tag == "Enemy" || other.gameObject.tag == "Powerup")
         {
