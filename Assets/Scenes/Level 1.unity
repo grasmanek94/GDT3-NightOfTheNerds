@@ -6405,7 +6405,7 @@ Prefab:
     - target: {fileID: 114539771981261454, guid: ec7bedad5243f214b837341ee6453e36,
         type: 2}
       propertyPath: state
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec7bedad5243f214b837341ee6453e36, type: 2}
@@ -13905,6 +13905,11 @@ Prefab:
     - target: {fileID: 4747923729596674, guid: 292362dd8dd85dc43b225e75d0ec71a2, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114009636181917514, guid: 292362dd8dd85dc43b225e75d0ec71a2,
+        type: 2}
+      propertyPath: walkSpeed
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 292362dd8dd85dc43b225e75d0ec71a2, type: 2}
@@ -43274,7 +43279,7 @@ Prefab:
     - target: {fileID: 114539771981261454, guid: ec7bedad5243f214b837341ee6453e36,
         type: 2}
       propertyPath: state
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec7bedad5243f214b837341ee6453e36, type: 2}
@@ -43670,26 +43675,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 356
       objectReference: {fileID: 0}
-    - target: {fileID: 114539771981261454, guid: ec7bedad5243f214b837341ee6453e36,
-        type: 2}
-      propertyPath: spriteFull
-      value: 
-      objectReference: {fileID: 21300000, guid: cc9b96ec0ba1e354c8088b13989ee01c,
-        type: 3}
-    - target: {fileID: 114539771981261454, guid: ec7bedad5243f214b837341ee6453e36,
-        type: 2}
-      propertyPath: spriteEmpty
-      value: 
-      objectReference: {fileID: 21300000, guid: 9e00978cb6919444181c21cca207f30d,
-        type: 3}
+    - target: {fileID: 1539207864491532, guid: ec7bedad5243f214b837341ee6453e36, type: 2}
+      propertyPath: m_Name
+      value: LootBlock (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 114539771981261454, guid: ec7bedad5243f214b837341ee6453e36,
         type: 2}
       propertyPath: state
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1539207864491532, guid: ec7bedad5243f214b837341ee6453e36, type: 2}
-      propertyPath: m_Name
-      value: LootBlock (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec7bedad5243f214b837341ee6453e36, type: 2}

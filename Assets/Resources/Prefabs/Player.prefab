@@ -434,7 +434,7 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 4294967039
-  walkSpeed: 1
+  walkSpeed: 0.5
   jumpHeight: 6
   dead: 0
   invulnerable: 0
