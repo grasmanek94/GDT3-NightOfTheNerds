@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4150992735689192}
   - component: {fileID: 33090639946363044}
   - component: {fileID: 23905590246477120}
-  - component: {fileID: 114769081701002146}
+  - component: {fileID: 114808507917583776}
   m_Layer: 0
   m_Name: spritesheet
   m_TagString: Untagged
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4900123215738234}
-  - component: {fileID: 114282048580407808}
+  - component: {fileID: 114252265655201086}
   m_Layer: 0
   m_Name: Brown Platforms
   m_TagString: Untagged
@@ -149,7 +149,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4431643244079124}
-  - component: {fileID: 114672517933201086}
+  - component: {fileID: 114207742267203100}
   m_Layer: 0
   m_Name: Level123
   m_TagString: Untagged
@@ -226,7 +226,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 99f591ab53c224a4ab4ddcb5d615396d, type: 2}
+  - {fileID: 2100000, guid: 06a65a849b4a93848932735853404345, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -252,7 +252,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1407927059021254}
-  m_Mesh: {fileID: 4300000, guid: 9477110c77ed66c43869d0796e664ae1, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 0fe530cc95cdbf743b544b4fdc50bc2c, type: 3}
 --- !u!60 &60006934291345006
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -2263,19 +2263,7 @@ EdgeCollider2D:
   - {x: 28.33333, y: -10}
   - {x: 28, y: -10}
   - {x: 28.33333, y: -10.33333}
---- !u!114 &114282048580407808
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1981068397303748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8dfae35643383e429bebad08a0cd640, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Offset: {x: 496, y: 800}
---- !u!114 &114672517933201086
+--- !u!114 &114207742267203100
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2283,7 +2271,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1986546431581194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44922d8ce59d67843a2641bdfeb219fd, type: 3}
+  m_Script: {fileID: 11500000, guid: c51f3cd7fea93ef43b737b3bc858266f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Orientation: 0
@@ -2299,7 +2287,19 @@ MonoBehaviour:
   MapWidthInPixels: 25600
   MapHeightInPixels: 4096
   BackgroundColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
---- !u!114 &114769081701002146
+--- !u!114 &114252265655201086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1981068397303748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9d74727ebd7bf42b692fda21444fb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Offset: {x: 496, y: 800}
+--- !u!114 &114808507917583776
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2307,6 +2307,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1407927059021254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e03a135d75f35841a8333cbdea4c4b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 2402215665c8cd849bd7ffdc9c57af1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -8,7 +8,7 @@ public class LevelDead : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            other.GetComponent<Player>().Hit();
+            other.GetComponent<Player>().dead = true;
         }
     }
 }
