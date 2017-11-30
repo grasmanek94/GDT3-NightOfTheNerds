@@ -137,6 +137,10 @@ public class Player : MonoBehaviour
 
 	void ChangeSprite()
 	{
+		if (dead == true)
+		{
+			this.GetComponent<SpriteRenderer>().flipY = true;
+		}
 		if (isGrounded == true)
 		{
 			this.GetComponent<Animator>().SetBool("grounded", true);

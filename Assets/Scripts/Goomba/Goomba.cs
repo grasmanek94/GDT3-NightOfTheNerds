@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Goomba : MonoBehaviour
 {
-    public Sprite spriteLeft;
-    public Sprite spriteRight;
-    public Sprite spriteDead;
     public float walkSpeed;
     public Direction moveDirection;
     public bool dead;
@@ -18,13 +15,13 @@ public class Goomba : MonoBehaviour
         {
             if (moveDirection == Direction.Right)
             {
-                this.GetComponent<SpriteRenderer>().sprite = spriteRight;
+                this.GetComponent<SpriteRenderer>().flipX = false;
                 this.transform.Translate(new Vector2(walkSpeed / 10, 0));
             }
             else if (moveDirection == Direction.Left)
             {
-                this.GetComponent<SpriteRenderer>().sprite = spriteLeft;
-                this.transform.Translate(new Vector2(-walkSpeed / 10, 0));
+				this.GetComponent<SpriteRenderer>().flipX = true;
+				this.transform.Translate(new Vector2(-walkSpeed / 10, 0));
             }
         }
         else if (dead == true)

@@ -10,7 +10,7 @@ public class GoombaTopTrigger : MonoBehaviour {
         {
             other.GetComponent<Player>().Jump();
             this.GetComponentInParent<AudioSource>().Play();
-            this.GetComponentInParent<SpriteRenderer>().sprite = this.GetComponentInParent<Goomba>().spriteDead;
+			this.GetComponentInParent<SpriteRenderer>().flipY = true;
             this.GetComponentInParent<Goomba>().dead = true;
             Destroy(this.GetComponentInParent<Goomba>().gameObject, 1);
         }
