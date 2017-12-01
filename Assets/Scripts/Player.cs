@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public PlayerType type;
     public GameManager gamemanager;
     private bool jumped;
+    private Vector3 lastPosition;
+    private float speed;
 
 
 	public enum PlayerType { Normal, Upgraded }
@@ -125,7 +127,12 @@ public class Player : MonoBehaviour
             this.GetComponent<CapsuleCollider2D>().enabled = false;
         }
 
+        speed = (transform.position.x - lastPosition.x);
+        lastPosition = transform.position;
+        Debug.Log(Mathf.Abs(speed));
+
         ChangeSprite();
+
     }
 
     public void Jump()
@@ -165,7 +172,14 @@ public class Player : MonoBehaviour
 		{
 			this.GetComponent<SpriteRenderer>().flipX = true;
 		}
-		this.GetComponent<Animator>().SetFloat("speed", Mathf.Abs(Input.GetAxis("Horizontal")));
+        if (Mathf.Abs(speed) > 0)
+        {
+            this.GetComponent<Animator>().SetFloat("speed", 1);
+        }
+        else
+        {
+            this.GetComponent<Animator>().SetFloat("speed", 0);
+        }
 	}
 
     public void Hit()
