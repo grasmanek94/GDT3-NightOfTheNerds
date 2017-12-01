@@ -129,7 +129,6 @@ public class Player : MonoBehaviour
 
         speed = (transform.position.x - lastPosition.x);
         lastPosition = transform.position;
-        Debug.Log(Mathf.Abs(speed));
 
         ChangeSprite();
 
