@@ -11,12 +11,23 @@ public class WebTalkTest {
     bool done;
     bool fail;
     int counter;
-	[Test]
-	public void WebTalkTest1() {
+
+    [SetUp]
+    public void InitTest()
+    {
         done = false;
         fail = false;
         counter = 0;
+    }
 
+    [TearDown]
+    public void DeinitTest()
+    {
+
+    }
+
+	[Test]
+	public void WebTalkTest1() {
         WebTalk webtalk = new WebTalk();
 
         webtalk.OnRegisterSuccess += Webtalk_OnRegisterSuccess;
@@ -25,10 +36,10 @@ public class WebTalkTest {
         webtalk.OnRegisterFail += Webtalk_OnRegisterFail;
 
         webtalk.register();
-        while (!done && counter < (2000/16)) { Thread.Sleep(16); ++counter; }
+        webtalk.add_score("6AE8E9AF0D4BFA1854097E15D5BE5C07B46B81B45");
 
-        Assert.IsTrue(webtalk.Registered);
         Assert.IsFalse(fail);
+        Assert.IsTrue(webtalk.Registered);
         Assert.IsNotEmpty(webtalk.Name);
     }
 
