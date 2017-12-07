@@ -7,11 +7,18 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace WebTalk
+namespace NerdOfTheNight
 {
-    public class WebTalk : MonoBehaviour
+    public class WebTalk
     {
         public static string base_url = "http://nerd-of-the-night.dev";
+
+        public delegate void RegisterHandler(WebTalk obj, string result);
+        public event RegisterHandler OnRegisterSuccess;
+        public delegate void ScoreHandler(WebTalk obj, string score);
+        public event ScoreHandler OnScoreAdded;
+        public event RegisterHandler OnRegisterFail;
+        public event ScoreHandler OnScoreFailed;
 
         public bool Registered
         {
@@ -194,79 +201,117 @@ namespace WebTalk
             }
         }
 
-        private void registerResult(string result)
+        private void registerResult(bool success, string result)
         {
-            Name = result;
+            if (success)
+            {
+                Name = result;
+                Registered = true;
+                if (OnRegisterSuccess != null)
+                {
+                    OnRegisterSuccess(this, result);
+                }
+            }
+            else if(OnRegisterFail != null)
+            {
+                OnRegisterFail(this, result);
+            }
         }
 
         private void scoreResult(bool success, string code)
         {
-            if(success && !Scores.Contains(code))
+            if(success)
             {
-                Scores.Add(code);
+                if (!Scores.Contains(code))
+                {
+                    Scores.Add(code);
+                }
+
+                if (OnScoreAdded != null)
+                {
+                    OnScoreAdded(this, code);
+                }
+            }
+            else if(OnScoreFailed != null)
+            {
+                OnScoreFailed(this, code);
             }
         }
 
-        private IEnumerator GetNameCoroutine(Action<string> registerResultCallback)
+        private void GetNameCoroutine()
         {
             string unique_identifier = SystemInfo.deviceUniqueIdentifier;
             string route = base_url + "/register/" + unique_identifier;
 
             UnityWebRequest www = UnityWebRequest.Get(route);
-            yield return www.SendWebRequest();
+            var req = www.SendWebRequest();
+            req.completed += NameRequestCompleted;
+        }
+
+        private void NameRequestCompleted(AsyncOperation obj)
+        {
+            UnityWebRequestAsyncOperation oper = obj as UnityWebRequestAsyncOperation;
+            UnityWebRequest www = oper.webRequest;
 
             if (www.isNetworkError || www.isHttpError)
             {
-                Debug.Log(www.error);
+                //Debug.Log(www.error);
+                registerResult(false, "");
             }
             else
             {
                 // Show results as text
-                Debug.Log(www.downloadHandler.text);
+                //Debug.Log(www.downloadHandler.text);
                 RegisterResult result = RegisterResult.CreateFromJSON(www.downloadHandler.text);
-
-                if (result.success)
-                {
-                    Registered = true;
-                    registerResultCallback(result.name);
-                }
+                registerResult(result.success, result.name);
             }
+
+            www.Dispose();
         }
 
-        private IEnumerator AddScoreCoroutine(Action<bool, string> scoreResultCallback, string score)
+        private void AddScoreCoroutine(string score)
         {
             string unique_identifier = SystemInfo.deviceUniqueIdentifier;
             string route = base_url + "/add_score/" + unique_identifier + "/" + Encrypt(score, unique_identifier);
 
             UnityWebRequest www = UnityWebRequest.Get(route);
-            yield return www.SendWebRequest();
+            var req = www.SendWebRequest();
+            req.completed += ScoreRequestCompleted;
+        }
+
+        private void ScoreRequestCompleted(AsyncOperation obj)
+        {
+            UnityWebRequestAsyncOperation oper = obj as UnityWebRequestAsyncOperation;
+            UnityWebRequest www = oper.webRequest;
+
+            string unique_identifier = SystemInfo.deviceUniqueIdentifier;
+            string[] segments = www.url.Split('/');
+            string code = "";
+            if (segments.Length > 0)
+            {
+                code = Decrypt(segments[segments.Length - 1], unique_identifier);
+            }
 
             if (www.isNetworkError || www.isHttpError)
             {
-                Debug.Log(www.error);
+                //Debug.Log(www.error);
+                scoreResult(false, code);
             }
             else
             {
                 // Show results as text
-                Debug.Log(www.downloadHandler.text);
+                //Debug.Log(www.downloadHandler.text);
                 ScoreResult result = ScoreResult.CreateFromJSON(www.downloadHandler.text);
 
-                if (result.success)
-                {
-                    Registered = true;
-                    scoreResultCallback(result.success, score);
-                }
+                scoreResult(result.success, code);
             }
+
+            www.Dispose();
         }
 
         public WebTalk()
         {
-            Start();
-        }
-
-        private void Start()
-        {
-            if(Scores == null)
+            if (Scores == null)
             {
                 Scores = new List<string>();
             }
@@ -274,12 +319,12 @@ namespace WebTalk
 
         public void register()
         {
-            StartCoroutine(GetNameCoroutine(registerResult));
+            GetNameCoroutine();
         }
 
         public void add_score(string score)
         {
-            StartCoroutine(AddScoreCoroutine(scoreResult, score));
+            AddScoreCoroutine(score);
         }
 
         public bool is_code_level_unlock(string score)
