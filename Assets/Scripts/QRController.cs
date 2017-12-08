@@ -6,8 +6,8 @@ using ZXing;
 
 public class QRController : MonoBehaviour
 {
-    public delegate void QRCodeScanned(string code);
-    public static event QRCodeScanned OnQRCodeScanned;
+    public delegate void QRCodeScanned(QRController qr_controller, string code);
+    public event QRCodeScanned OnQRCodeScanned;
 
     private WebCamTexture webCamTexture;
     private Rect screenRect; // Rectangle in which the webcamtexture will be placed
@@ -54,7 +54,7 @@ public class QRController : MonoBehaviour
                 if (result != null)
                 {
                     codeResult = result.Text;
-                    OnQRCodeScanned(result.Text);
+                    OnQRCodeScanned(this, result.Text);
                 }
             }
             catch (Exception ex)

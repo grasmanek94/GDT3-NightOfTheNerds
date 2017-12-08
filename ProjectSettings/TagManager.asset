@@ -10,6 +10,9 @@ TagManager:
   - Powerup
   - Enemy
   - MovingPlatform
+  - Checkpoint
+  - MapGrid
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -19,7 +22,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Checkpoints
   - 
   - 
   - 
