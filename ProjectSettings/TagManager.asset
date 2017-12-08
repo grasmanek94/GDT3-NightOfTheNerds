@@ -12,6 +12,7 @@ TagManager:
   - MovingPlatform
   - Checkpoint
   - MapGrid
+  - Door
   layers:
   - Default
   - TransparentFX
