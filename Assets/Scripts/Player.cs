@@ -207,4 +207,30 @@ public class Player : MonoBehaviour
             type = PlayerType.Upgraded;
         }
     }
+
+    public void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "MovingPlatform")
+        {
+            Debug.Log("Entered");
+            transform.SetParent(col.gameObject.transform);
+        }
+    }
+
+    public void OnCollisionStay2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "MovingPlatform")
+        {
+            Debug.Log("Stay...");
+        }
+    }
+
+    public void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "MovingPlatform")
+        {
+            Debug.Log("Leaving");
+            transform.SetParent(null);
+        }
+    }
 }
