@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
+  - FxTemporaire
+  - Level
+  - Powerup
+  - Enemy
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX

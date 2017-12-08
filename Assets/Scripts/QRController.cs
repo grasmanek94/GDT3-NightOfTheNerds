@@ -6,15 +6,16 @@ using ZXing;
 
 public class QRController : MonoBehaviour
 {
+    public delegate void QRCodeScanned(string code);
+    public static event QRCodeScanned OnQRCodeScanned;
 
     private WebCamTexture webCamTexture;
     private Rect screenRect; // Rectangle in which the webcamtexture will be placed
     public string codeResult; // The decoded QR code
 
     // Use this for initialization
-    void Start()
+    private void OnEnable()
     {
-        Application.RequestUserAuthorization(UserAuthorization.WebCam);
         screenRect = new Rect(0, 0, Screen.width, Screen.height);
 
         webCamTexture = new WebCamTexture();
@@ -29,31 +30,37 @@ public class QRController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-
+        if (webCamTexture != null)
+        {
+            webCamTexture.Stop();
+        }
     }
 
     //Is called for rendering and handling GUI events
     void OnGUI()
     {
-        // Draws the camera to the screen
-        if (webCamTexture != null)
+        if (OnQRCodeScanned != null)
         {
+            // Draws the camera to the screen
             GUI.DrawTexture(screenRect, webCamTexture, ScaleMode.ScaleToFit);
-            GUI.depth = 1;
+
+            // Read the QR code with a barcodereader and decode it
+            try
+            {
+                IBarcodeReader qrReader = new BarcodeReader();
+                Result result = qrReader.Decode(webCamTexture.GetPixels32(), webCamTexture.width, webCamTexture.height);
+                if (result != null)
+                {
+                    codeResult = result.Text;
+                    OnQRCodeScanned(result.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.Log(ex.Message);
+            }
         }
-
-        // Read the QR code with a barcodereader and decode it
-        IBarcodeReader qrReader = new BarcodeReader();
-        Result result = qrReader.Decode(webCamTexture.GetPixels32(), webCamTexture.width, webCamTexture.height);
-        if (result != null)
-        {
-            Debug.Log("Check1");
-            codeResult = result.Text;
-        }
-
-
     }
 }
