@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 82336088543322734}
   - component: {fileID: 82519008501017604}
   - component: {fileID: 82623574782768288}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMask:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 4294967035
   walkSpeed: 0.5
   jumpHeight: 6
   dead: 0

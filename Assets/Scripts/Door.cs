@@ -40,7 +40,7 @@ public class Door : MonoBehaviour {
 
     private void OnQRCodeScanned(QRController obj, string code)
     {
-        if(code.Length > 0 && code.Length < 64)
+        if(webtalk.is_code_level_unlock(code))
         {
             qr_controller.enabled = false;
             webtalk.add_score(code);
