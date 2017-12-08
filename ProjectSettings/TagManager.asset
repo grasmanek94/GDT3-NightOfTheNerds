@@ -10,6 +10,7 @@ TagManager:
   - Powerup
   - Enemy
   - MovingPlatform
+  - Door
   layers:
   - Default
   - TransparentFX

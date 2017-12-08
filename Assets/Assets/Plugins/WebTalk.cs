@@ -11,7 +11,7 @@ namespace NerdOfTheNight
 {
     public class WebTalk
     {
-        public static string base_url = "http://nerd-of-the-night.dev";
+        public static string base_url = "http://non.gz0.nl";
 
         public delegate void RegisterHandler(WebTalk obj, string result);
         public event RegisterHandler OnRegisterSuccess;
@@ -154,7 +154,7 @@ namespace NerdOfTheNight
                 0x55, 0x33, 0x33, 0x01
             };
 
-            return this.EncryptString(str, x_key, iv);
+            return this.EncryptString(str, x_key, iv).Replace('/', '-');
         }
 
         private string Decrypt(string str, string key)
@@ -171,7 +171,7 @@ namespace NerdOfTheNight
                 0x55, 0x33, 0x33, 0x01
             };
 
-            return this.DecryptString(str, x_key, iv);
+            return this.DecryptString(str.Replace('-', '/'), x_key, iv);
         }
 
         [System.Serializable]
@@ -294,7 +294,7 @@ namespace NerdOfTheNight
 
             if (www.isNetworkError || www.isHttpError)
             {
-                //Debug.Log(www.error);
+                Debug.Log(www.error);
                 scoreResult(false, code);
             }
             else
