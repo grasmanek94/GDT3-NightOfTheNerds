@@ -10,6 +10,7 @@ public class QRController : MonoBehaviour
     public event QRCodeScanned OnQRCodeScanned;
 
     private WebCamTexture webCamTexture;
+    private IBarcodeReader qrReader;
     private Rect screenRect; // Rectangle in which the webcamtexture will be placed
     public string codeResult; // The decoded QR code
 
@@ -27,6 +28,7 @@ public class QRController : MonoBehaviour
         if (webCamTexture != null)
         {
             webCamTexture.Play();
+            qrReader = new BarcodeReader();
         }
     }
 
@@ -41,7 +43,7 @@ public class QRController : MonoBehaviour
     //Is called for rendering and handling GUI events
     void OnGUI()
     {
-        if (OnQRCodeScanned != null)
+        if (OnQRCodeScanned != null && webCamTexture != null && webCamTexture.isPlaying)
         {
             // Draws the camera to the screen
             GUI.DrawTexture(screenRect, webCamTexture, ScaleMode.ScaleToFit);
@@ -49,7 +51,7 @@ public class QRController : MonoBehaviour
             // Read the QR code with a barcodereader and decode it
             try
             {
-                IBarcodeReader qrReader = new BarcodeReader();
+                
                 Result result = qrReader.Decode(webCamTexture.GetPixels32(), webCamTexture.width, webCamTexture.height);
                 if (result != null)
                 {
