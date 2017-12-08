@@ -14,6 +14,7 @@ public class QRController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Application.RequestUserAuthorization(UserAuthorization.WebCam);
         screenRect = new Rect(0, 0, Screen.width, Screen.height);
 
         webCamTexture = new WebCamTexture();
@@ -38,18 +39,21 @@ public class QRController : MonoBehaviour
     void OnGUI()
     {
         // Draws the camera to the screen
-        GUI.DrawTexture(screenRect, webCamTexture, ScaleMode.ScaleToFit);
+        if (webCamTexture != null)
+        {
+            GUI.DrawTexture(screenRect, webCamTexture, ScaleMode.ScaleToFit);
+            GUI.depth = 1;
+        }
 
         // Read the QR code with a barcodereader and decode it
-        try
+        IBarcodeReader qrReader = new BarcodeReader();
+        Result result = qrReader.Decode(webCamTexture.GetPixels32(), webCamTexture.width, webCamTexture.height);
+        if (result != null)
         {
-            IBarcodeReader qrReader = new BarcodeReader();
-            Result result = qrReader.Decode(webCamTexture.GetPixels32(), webCamTexture.width, webCamTexture.height);
+            Debug.Log("Check1");
             codeResult = result.Text;
         }
-        catch (Exception ex)
-        {
-            Debug.Log(ex.Message);
-        }
+
+
     }
 }
