@@ -15,12 +15,15 @@ public class Player : MonoBehaviour
     public PlayerType type;
     public GameManager gamemanager;
     private bool jumped;
+	private bool fired;
     private Vector3 lastPosition;
     private float speed;
+	public float bulletSpeed;
+	public BulletType bulletType;
 
-
-	public enum PlayerType { Normal, Upgraded }
-    public enum Direction { Left, Right }
+	public enum BulletType { SingleLaser, DualLaser, TrippleLaser };
+	public enum PlayerType { Normal, Upgraded, Shooter };
+	public enum Direction { Left, Right };
 
     private void Start()
     {
@@ -51,10 +54,19 @@ public class Player : MonoBehaviour
         }
         else if (type == PlayerType.Upgraded)
         {
-            this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.5f, 1.1f);
+			this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.5f, 0.6f);
+			this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, 0);
+			isGrounded = Physics2D.Linecast(this.transform.position, new Vector2(this.transform.position.x, this.transform.position.y - 0.35f), playerMask);
+			/*this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.5f, 1.1f);
             this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.08f);
-            isGrounded = Physics2D.Linecast(this.transform.position, new Vector2(this.transform.position.x, this.transform.position.y - 0.70f), playerMask);
+            isGrounded = Physics2D.Linecast(this.transform.position, new Vector2(this.transform.position.x, this.transform.position.y - 0.70f), playerMask);*/
         }
+		else if (type == PlayerType.Shooter)
+		{
+			this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.5f, 0.6f);
+			this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, 0);
+			isGrounded = Physics2D.Linecast(this.transform.position, new Vector2(this.transform.position.x, this.transform.position.y - 0.35f), playerMask);
+		}
         
 
         if (this.dead == false)
@@ -78,7 +90,14 @@ public class Player : MonoBehaviour
 						Jump();
 						jumped = true;
 					}
-
+				}
+				if (Input.GetKey(KeyCode.LeftControl) || gamemanager.shoot == true)
+				{
+					if (type == PlayerType.Shooter && fired == false)
+					{
+						Shoot ();
+						fired = true;
+					}
 				}
 			}
 			else
@@ -100,7 +119,14 @@ public class Player : MonoBehaviour
 						Jump();
 						jumped = true;
 					}
-
+				}
+				if (Input.GetKey(KeyCode.LeftControl))
+				{
+					if (type == PlayerType.Shooter && fired == false)
+					{
+						Shoot ();
+						fired = true;
+					}
 				}
 			}
 			if (gamemanager != null)
@@ -116,6 +142,21 @@ public class Player : MonoBehaviour
 				if (Input.GetKey("up") == false)
 				{
 					jumped = false;
+				}
+			}
+			if (gamemanager != null)
+			{
+
+				if (Input.GetKey(KeyCode.LeftControl) == false && gamemanager.shoot == false)
+				{
+					fired = false;
+				}
+			}
+			else
+			{
+				if (Input.GetKey(KeyCode.LeftControl) == false)
+				{
+					fired = false;
 				}
 			}
 
@@ -140,6 +181,67 @@ public class Player : MonoBehaviour
         this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         this.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
     }
+
+	public void Shoot()
+	{
+		this.GetComponents<AudioSource>()[4].Play();
+		if (bulletType == BulletType.SingleLaser)
+		{
+			GameObject laser = (GameObject)Instantiate (Resources.Load ("Prefabs/Laser"), new Vector2 (this.transform.position.x, this.transform.position.y), Quaternion.identity);
+			Destroy (laser, 10);
+			if (moveDirection == Direction.Left) {
+				laser.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (bulletSpeed * -1, 0), ForceMode2D.Impulse);
+			} else if (moveDirection == Direction.Right) {
+				laser.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (bulletSpeed, 0), ForceMode2D.Impulse);
+			}
+		} 
+		else if (bulletType == BulletType.DualLaser)
+		{
+			GameObject laserStraight = (GameObject)Instantiate (Resources.Load ("Prefabs/Laser"), new Vector2 (this.transform.position.x, this.transform.position.y), Quaternion.identity);
+			GameObject laserDown = (GameObject)Instantiate (Resources.Load ("Prefabs/Laser"), new Vector2 (this.transform.position.x, this.transform.position.y), Quaternion.identity);
+			Destroy (laserStraight, 10);
+			Destroy (laserDown, 10);
+			if (moveDirection == Direction.Left)
+			{
+				laserStraight.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (bulletSpeed * -1, 0), ForceMode2D.Impulse);
+				laserDown.transform.rotation = new Quaternion (0, 0, 35, 180);
+				laserDown.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (bulletSpeed * -1, -2), ForceMode2D.Impulse);
+			}
+			else if (moveDirection == Direction.Right)
+			{
+				laserStraight.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (bulletSpeed, 0), ForceMode2D.Impulse);
+				laserDown.transform.rotation = new Quaternion (0, 0, -35, 180);
+				laserDown.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (bulletSpeed, -2), ForceMode2D.Impulse);
+			}
+		}
+		else if (bulletType == BulletType.TrippleLaser)
+		{
+			GameObject laserStraight = (GameObject)Instantiate (Resources.Load ("Prefabs/Laser"), new Vector2 (this.transform.position.x, this.transform.position.y), Quaternion.identity);
+			GameObject laserDown = (GameObject)Instantiate (Resources.Load ("Prefabs/Laser"), new Vector2 (this.transform.position.x, this.transform.position.y), Quaternion.identity);
+			GameObject laserUp = (GameObject)Instantiate (Resources.Load ("Prefabs/Laser"), new Vector2 (this.transform.position.x, this.transform.position.y), Quaternion.identity);
+			Destroy (laserStraight, 10);
+			Destroy (laserDown, 10);
+			Destroy (laserUp, 10);
+			if (moveDirection == Direction.Left)
+			{
+				laserStraight.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (bulletSpeed * -1, 0), ForceMode2D.Impulse);
+				laserDown.transform.rotation = new Quaternion (0, 0, 35, 180);
+				laserDown.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (bulletSpeed * -1, -2), ForceMode2D.Impulse);
+				laserUp.transform.rotation = new Quaternion (0, 0, -35, 180);
+				laserUp.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (bulletSpeed * -1, 2), ForceMode2D.Impulse);
+			}
+			else if (moveDirection == Direction.Right)
+			{
+				laserStraight.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (bulletSpeed, 0), ForceMode2D.Impulse);
+				laserDown.transform.rotation = new Quaternion (0, 0, -35, 180);
+				laserDown.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (bulletSpeed, -2), ForceMode2D.Impulse);
+				laserUp.transform.rotation = new Quaternion (0, 0, 35, 180);
+				laserUp.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (bulletSpeed, 2), ForceMode2D.Impulse);
+			}
+		}
+
+
+	}
 
 	void ChangeSprite()
 	{
@@ -197,6 +299,11 @@ public class Player : MonoBehaviour
                 invulnerable = true;
                 invulnerableTime = 1;
             }
+			else if (type == Player.PlayerType.Shooter)
+			{
+				this.GetComponents<AudioSource>()[2].Play();
+				dead = true;
+			}
         }
     }
     public void Powerup(PlayerType powerupType)
@@ -206,5 +313,10 @@ public class Player : MonoBehaviour
             this.GetComponents<AudioSource>()[1].Play();
             type = PlayerType.Upgraded;
         }
+		else if (powerupType == PlayerType.Shooter)
+		{
+			this.GetComponents<AudioSource>()[1].Play();
+			type = PlayerType.Shooter;
+		}
     }
 }

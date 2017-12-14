@@ -8,11 +8,15 @@ public class PowerupTopTrigger : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            if (this.GetComponentInParent<Powerup>().type == Powerup.PowerupType.Upgraded)
-            {
-                other.GetComponent<Player>().Powerup(Player.PlayerType.Upgraded);
-            }
-            Destroy(this.GetComponentInParent<Powerup>().gameObject);
+			if (this.GetComponentInParent<Powerup>().type == Powerup.PowerupType.Upgraded)
+			{
+				other.GetComponent<Player>().Powerup(Player.PlayerType.Upgraded);
+			}
+			else if (this.GetComponentInParent<Powerup>().type == Powerup.PowerupType.Shooter)
+			{
+				other.GetComponent<Player>().Powerup(Player.PlayerType.Shooter);
+			}
+			Destroy(this.GetComponentInParent<Powerup>().gameObject);
         }
     }
 }

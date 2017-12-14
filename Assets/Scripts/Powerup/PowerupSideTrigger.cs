@@ -8,15 +8,18 @@ public class PowerupSideTrigger : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            if (this.GetComponentInParent<Powerup>().type == Powerup.PowerupType.Upgraded)
-            {
-                other.GetComponent<Player>().Powerup(Player.PlayerType.Upgraded);
-            }
-            Destroy(this.GetComponentInParent<Powerup>().gameObject);
+			if (this.GetComponentInParent<Powerup>().type == Powerup.PowerupType.Upgraded)
+			{
+				other.GetComponent<Player>().Powerup(Player.PlayerType.Upgraded);
+			}
+			else if (this.GetComponentInParent<Powerup>().type == Powerup.PowerupType.Shooter)
+			{
+				other.GetComponent<Player>().Powerup(Player.PlayerType.Shooter);
+			}
+			Destroy(this.GetComponentInParent<Powerup>().gameObject);
         }
         else if (other.gameObject.tag == "Level" || other.gameObject.tag == "Enemy" || other.gameObject.tag == "Powerup")
         {
-            Debug.Log("hit");
             if (this.GetComponentInParent<Powerup>().moveDirection == Powerup.Direction.Left)
             {
                 Debug.Log("right");
