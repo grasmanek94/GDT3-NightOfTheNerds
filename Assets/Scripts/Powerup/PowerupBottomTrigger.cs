@@ -12,6 +12,10 @@ public class PowerupBottomTrigger : MonoBehaviour {
             {
                 other.GetComponent<Player>().Powerup(Player.PlayerType.Upgraded);
             }
+			else if (this.GetComponentInParent<Powerup>().type == Powerup.PowerupType.Shooter)
+			{
+				other.GetComponent<Player>().Powerup(Player.PlayerType.Shooter);
+			}
             Destroy(this.GetComponentInParent<Powerup>().gameObject);
         }
     }

@@ -8,7 +8,7 @@ public class LootBlock : MonoBehaviour {
     public Sprite spriteEmpty;
     public LootBlockState state;
 
-    public enum LootBlockState { Empty, Mushroom, Goomba }
+    public enum LootBlockState { Empty, Mushroom, Goomba, Gun }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -28,6 +28,12 @@ public class LootBlock : MonoBehaviour {
                 state = LootBlockState.Empty;
                 Instantiate(Resources.Load("Prefabs/Goomba"), new Vector2(this.transform.position.x, this.transform.position.y + 0.64f), Quaternion.identity);
             }
+			else if (state == LootBlockState.Gun)
+			{
+				this.GetComponents<AudioSource>()[0].Play();
+				state = LootBlockState.Empty;
+				Instantiate(Resources.Load("Prefabs/Gun"), new Vector2(this.transform.position.x, this.transform.position.y + 0.64f), Quaternion.identity);
+			}
         }
     }
 }

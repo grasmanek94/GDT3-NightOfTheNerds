@@ -10,9 +10,11 @@ public class GameManager : MonoBehaviour {
     public bool jump;
     public bool left;
     public bool right;
+	public bool shoot;
     public Button jumpButton;
     public Button leftButton;
     public Button rightButton;
+	public Button shootButton;
     public Button restartButton;
     public Button keyboardButton;
     public Button touchButton;
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour {
         jumpButton.gameObject.SetActive(true);
         leftButton.gameObject.SetActive(true);
         rightButton.gameObject.SetActive(true);
+		shootButton.gameObject.SetActive(true);
         level++;
         Restart();
     }
@@ -60,7 +63,6 @@ public class GameManager : MonoBehaviour {
     public void JumpDown()
     {
         jump = true;
-        
     }
 
     public void JumpUp()
@@ -87,4 +89,14 @@ public class GameManager : MonoBehaviour {
     {
         right = false;
     }
+
+	public void ShootDown()
+	{
+		shoot = true;
+	}
+
+	public void ShootUp()
+	{
+		shoot = false;
+	}
 }
