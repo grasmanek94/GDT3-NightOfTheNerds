@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
 	public enum PlayerType { Normal, Upgraded, Shooter };
 	public enum Direction { Left, Right };
 
+    private GameObject upgradeParticles;
+
     private void Start()
     {
 		try
@@ -297,6 +299,7 @@ public class Player : MonoBehaviour
             {
                 this.GetComponents<AudioSource>()[0].Play();
                 type = Player.PlayerType.Normal;
+                Destroy(upgradeParticles);
                 invulnerable = true;
                 invulnerableTime = 1;
             }
@@ -313,12 +316,16 @@ public class Player : MonoBehaviour
         {
             this.GetComponents<AudioSource>()[1].Play();
             type = PlayerType.Upgraded;
+            upgradeParticles = (GameObject)Instantiate(Resources.Load("Prefabs/PowerupParticles"));
+            upgradeParticles.transform.SetParent(this.transform);
+            upgradeParticles.transform.localPosition = Vector3.zero;
         }
 		else if (powerupType == PlayerType.Shooter)
 		{
 			this.GetComponents<AudioSource>()[1].Play();
 			type = PlayerType.Shooter;
-		}
+            Destroy(upgradeParticles);
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D col)
