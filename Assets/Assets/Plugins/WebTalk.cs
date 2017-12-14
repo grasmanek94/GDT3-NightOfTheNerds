@@ -11,6 +11,13 @@ namespace NerdOfTheNight
 {
     public class WebTalk
     {
+        private enum ReportingState
+        {
+            NONE,
+            REPORTING,
+            REPORTED
+        }
+
         public static string base_url = "http://non.gz0.nl";
 
         public delegate void RegisterHandler(WebTalk obj, string result);
@@ -38,11 +45,7 @@ namespace NerdOfTheNight
             private set;
         }
 
-        public List<string> Scores
-        {
-            get;
-            private set;
-        }
+        private Dictionary<string, ReportingState> Scores;
 
         private string EncryptString(string plainText, byte[] key, byte[] iv)
         {
@@ -229,11 +232,6 @@ namespace NerdOfTheNight
         {
             if(success)
             {
-                if (!Scores.Contains(code))
-                {
-                    Scores.Add(code);
-                }
-
                 if (OnScoreAdded != null)
                 {
                     OnScoreAdded(this, code);
@@ -302,7 +300,20 @@ namespace NerdOfTheNight
             if (www.isNetworkError || www.isHttpError)
             {
                 Debug.Log(www.error);
-                scoreResult(false, code);
+                bool should_add = hashes.Contains(sha256_hash(code)) && !Scores.ContainsKey(code);
+
+                try
+                {
+                    scoreResult(should_add, code);
+                }
+                finally
+                {
+                    if (should_add)
+                    {
+                        Scores.Add(code, ReportingState.NONE);
+                    }
+                    www.Dispose();
+                }
             }
             else
             {
@@ -310,17 +321,31 @@ namespace NerdOfTheNight
                 //Debug.Log(www.downloadHandler.text);
                 ScoreResult result = ScoreResult.CreateFromJSON(www.downloadHandler.text);
 
-                scoreResult(result.success, code);
-            }
+                try
+                {
+                    scoreResult(result.success, code);
+                }
+                finally
+                {
+                    if (!Scores.ContainsKey(code))
+                    {
+                        Scores.Add(code, ReportingState.NONE);
+                    }
 
-            www.Dispose();
+                    if (result.success && Scores[code] != ReportingState.REPORTED)
+                    {
+                        Scores[code] = ReportingState.REPORTED;
+                    }
+                    www.Dispose();
+                }
+            }
         }
 
         public WebTalk()
         {
             if (Scores == null)
             {
-                Scores = new List<string>();
+                Scores = new Dictionary<string, ReportingState>();
             }
         }
 
@@ -329,13 +354,30 @@ namespace NerdOfTheNight
             GetNameCoroutine();
         }
 
+        public static string sha256_hash(string value)
+        {
+            StringBuilder Sb = new StringBuilder();
+
+            using (SHA256 hash = SHA256Managed.Create())
+            {
+                Encoding enc = Encoding.ASCII;
+                byte[] result = hash.ComputeHash(enc.GetBytes(value));
+
+                foreach (byte b in result)
+                    Sb.Append(b.ToString("x2"));
+            }
+
+            return Sb.ToString();
+        }
+
         public void add_score(string score)
         {
-            SHA256 mySHA256 = SHA256Managed.Create();
-            byte[] x_key = mySHA256.ComputeHash(Encoding.ASCII.GetBytes(score));
-
-           // if (hashes.Contains())
             AddScoreCoroutine(score);
+        }
+
+        public bool has_code(string score)
+        {
+            return Scores.ContainsKey(score);
         }
 
         public bool is_code_level_unlock(string score)
@@ -346,6 +388,24 @@ namespace NerdOfTheNight
         public bool is_code_bonus(string score)
         {
             return score.Length >= 23 && score[22] == '0';
+        }
+
+        public List<string> GetScores()
+        {
+            return new List<string>(Scores.Keys);
+        }
+
+        public void ReportUnreportedScores()
+        {
+            List<string> score_keys = GetScores();
+            foreach(var entry in score_keys)
+            {
+                if(Scores[entry] == ReportingState.NONE)
+                {
+                    Scores[entry] = ReportingState.REPORTING;
+                    add_score(entry);
+                }
+            }
         }
 
         private static HashSet<string> hashes = new HashSet<string>
