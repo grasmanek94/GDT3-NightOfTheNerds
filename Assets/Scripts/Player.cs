@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
 			this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.5f, 0.6f);
 			this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, 0);
 			isGrounded = Physics2D.Linecast(this.transform.position, new Vector2(this.transform.position.x, this.transform.position.y - 0.35f), playerMask);
-			/*this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.5f, 1.1f);
+            /*this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.5f, 1.1f);
             this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, -0.08f);
             isGrounded = Physics2D.Linecast(this.transform.position, new Vector2(this.transform.position.x, this.transform.position.y - 0.70f), playerMask);*/
         }
@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
 			this.GetComponent<CapsuleCollider2D>().size = new Vector2(0.5f, 0.6f);
 			this.GetComponent<CapsuleCollider2D>().offset = new Vector2(0, 0);
 			isGrounded = Physics2D.Linecast(this.transform.position, new Vector2(this.transform.position.x, this.transform.position.y - 0.35f), playerMask);
-		}
+        }
         
 
         if (this.dead == false)
@@ -277,8 +277,8 @@ public class Player : MonoBehaviour
 		}
 		if (invulnerable == true)
 		{
-			this.GetComponent<SpriteRenderer>().color = Color.grey;
-		}
+            this.GetComponent<SpriteRenderer>().color = Color.grey;
+        }
 		else
 		{
 			this.GetComponent<SpriteRenderer>().color = Color.white;
@@ -306,6 +306,16 @@ public class Player : MonoBehaviour
         else
         {
             this.GetComponent<Animator>().SetFloat("speed", 0);
+        }
+        if (type == PlayerType.Upgraded)
+        {
+            Color c = new Color32(255, 144, 144, 255);
+            this.GetComponent<SpriteRenderer>().color = c;
+        }
+        else if (type == PlayerType.Shooter)
+        {
+            Color c = new Color32(144, 255, 144, 255);
+            this.GetComponent<SpriteRenderer>().color = c;
         }
 	}
 
@@ -345,7 +355,7 @@ public class Player : MonoBehaviour
         }
 		else if (powerupType == PlayerType.Shooter)
 		{
-			this.GetComponents<AudioSource>()[1].Play();
+            this.GetComponents<AudioSource>()[1].Play();
 			type = PlayerType.Shooter;
             Destroy(upgradeParticles);
         }
