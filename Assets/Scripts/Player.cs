@@ -309,12 +309,12 @@ public class Player : MonoBehaviour
         }
         if (type == PlayerType.Upgraded)
         {
-            Color c = new Color32(255, 144, 144, 255);
+            Color c = new Color32(144, 255, 144, 255);
             this.GetComponent<SpriteRenderer>().color = c;
         }
         else if (type == PlayerType.Shooter)
         {
-            Color c = new Color32(144, 255, 144, 255);
+            Color c = new Color32(255, 144, 144, 255);
             this.GetComponent<SpriteRenderer>().color = c;
         }
 	}
