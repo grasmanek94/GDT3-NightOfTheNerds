@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
+  - FxTemporaire
+  - Level
+  - Powerup
+  - Enemy
+  - MovingPlatform
+  - Checkpoint
+  - MapGrid
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -14,7 +22,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Checkpoints
   - 
   - 
   - 

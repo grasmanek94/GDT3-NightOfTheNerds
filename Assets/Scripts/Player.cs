@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
     private bool isGrounded = false;
     public LayerMask playerMask;
     public float walkSpeed;
@@ -318,5 +319,23 @@ public class Player : MonoBehaviour
 			this.GetComponents<AudioSource>()[1].Play();
 			type = PlayerType.Shooter;
 		}
+    }
+
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "MovingPlatform")
+        {
+            Debug.Log("Entered Moving Platform");
+            transform.SetParent(col.gameObject.transform);
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "MovingPlatform")
+        {
+            Debug.Log("Leaving");
+            transform.SetParent(null);
+        }
     }
 }
