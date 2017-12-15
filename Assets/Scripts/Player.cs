@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
         }
         
 
-        if (this.dead == false)
+        if (!dead)
         {
 			if (gamemanager != null)
 			{
@@ -164,12 +164,6 @@ public class Player : MonoBehaviour
 				}
 			}
 
-        }
-        else if (dead == true)
-        {
-            this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            this.GetComponent<Rigidbody2D>().isKinematic = true;
-            this.GetComponent<CapsuleCollider2D>().enabled = false;
         }
 
         speed = (transform.position.x - lastPosition.x);
