@@ -273,49 +273,49 @@ public class Player : MonoBehaviour
 	{
 		if (dead == true)
 		{
-			this.GetComponent<SpriteRenderer>().flipY = true;
+			this.GetComponentInChildren<SpriteRenderer>().flipY = true;
 		}
 		if (invulnerable == true)
 		{
-            this.GetComponent<SpriteRenderer>().color = Color.grey;
+            this.GetComponentInChildren<SpriteRenderer>().color = Color.grey;
         }
 		else
 		{
-			this.GetComponent<SpriteRenderer>().color = Color.white;
+			this.GetComponentInChildren<SpriteRenderer>().color = Color.white;
 		}
 		if (isGrounded == true)
 		{
-			this.GetComponent<Animator>().SetBool("grounded", true);
+			this.GetComponentInChildren<Animator>().SetBool("grounded", true);
 		}
 		else
 		{
-			this.GetComponent<Animator>().SetBool("grounded", false);
+			this.GetComponentInChildren<Animator>().SetBool("grounded", false);
 		}
 		if (this.moveDirection == Direction.Left)
 		{
-			this.GetComponent<SpriteRenderer>().flipX = false;
+			this.GetComponentInChildren<SpriteRenderer>().flipX = false;
 		}
 		else if (this.moveDirection == Direction.Right)
 		{
-			this.GetComponent<SpriteRenderer>().flipX = true;
+			this.GetComponentInChildren<SpriteRenderer>().flipX = true;
 		}
         if (Mathf.Abs(speed) > 0)
         {
-            this.GetComponent<Animator>().SetFloat("speed", 1);
+            this.GetComponentInChildren<Animator>().SetFloat("speed", 1);
         }
         else
         {
-            this.GetComponent<Animator>().SetFloat("speed", 0);
+            this.GetComponentInChildren<Animator>().SetFloat("speed", 0);
         }
         if (type == PlayerType.Upgraded)
         {
             Color c = new Color32(144, 255, 144, 255);
-            this.GetComponent<SpriteRenderer>().color = c;
+            this.GetComponentInChildren<SpriteRenderer>().color = c;
         }
         else if (type == PlayerType.Shooter)
         {
             Color c = new Color32(255, 144, 144, 255);
-            this.GetComponent<SpriteRenderer>().color = c;
+            this.GetComponentInChildren<SpriteRenderer>().color = c;
         }
 	}
 

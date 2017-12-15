@@ -1,0 +1,6 @@
+Brawlbot is distributed with a cc0 license.
+Free for personal and commercial use ( Do whatever you want! )
+
+linking back to graphicsdojo.com is appreciated but not necessary.
+
+Thanks!

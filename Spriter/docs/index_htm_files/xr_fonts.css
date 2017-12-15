@@ -1,0 +1,4 @@
+@import url(//fonts.googleapis.com/css?family=Arimo:regular,700&subset=latin);
+@import url(//fonts.googleapis.com/css?family=Tinos:700,regular&subset=latin);
+@font-face {font-family: 'Verdana Regular';font-weight:normal;font-style:normal;src: url("XaraWDEmbeddedHTMLfont1.eot?") format("embedded-opentype"), url("XaraWDEmbeddedHTMLfont1.ttf") format("truetype"), local('Verdana Regular'), local("Verdana");}
+@font-face {font-family: 'Verdana Bold';font-weight:700;font-style:normal;src: url("XaraWDEmbeddedHTMLfont2.eot?") format("embedded-opentype"), url("XaraWDEmbeddedHTMLfont2.ttf") format("truetype"), local('Verdana Bold'), local("Verdana");}

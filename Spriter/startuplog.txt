@@ -1,0 +1,15 @@
+BrashMonkey Spriter - Version r11
+
+Setting up main window...
+Successful.
+
+Initializing model...
+Successful.
+
+Setting up widgets...
+Successful.
+
+Setting up graphics viewport with openGL...
+Successful.
+
+Spriter launched successfully.

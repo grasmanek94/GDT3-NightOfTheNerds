@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
+ <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"/>
+ <meta name="Generator" content="Xara HTML filter v.8.1.1.476"/>
+ <meta name="XAR Files" content="index_htm_files/xr_files.txt"/>
+ <title>adding variables to an animation</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
+
+
+
+ <script language="JavaScript" type="text/javascript">document.documentElement.className="xr_bgh29";</script>
+ <link rel="stylesheet" type="text/css" href="index_htm_files/xr_main.css"/>
+ <link rel="stylesheet" type="text/css" href="index_htm_files/xr_text.css"/>
+ <link rel="stylesheet" type="text/css" href="index_htm_files/custom_styles.css"/>
+ <script type="text/javascript" src="index_htm_files/roe.js"></script>
+ <script type="text/javascript" src="index_htm_files/replaceMobileFonts.js"></script>
+ <link rel="stylesheet" type="text/css" href="index_htm_files/ani.css"/>
+</head>
+<body class="xr_bgb29">
+<div class="xr_ap" id="xr_xr" style="width: 760px; height: 4906px; top:0px; left:50%; margin-left: -380px; text-align: left;">
+ <script type="text/javascript">var xr_xr=document.getElementById("xr_xr")</script>
+<div id="xr_td" class="xr_td">
+<div class="xr_ap xr_xri_" style="width: 760px; height: 4906px;">
+ <span class="xr_ar" style="left: -564px; top: 4841px; width: 1900px; height: 65px; background-color: #2F7FAC;"></span>
+ <div class="xr_s3" style="position: absolute; left:36px; top:189px; width:683px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;">Spriter Pro offers the ability to add and several gameplay related types of data to your animations, with the </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">ability to change their values or settings at any time throughout the animation. These values, if numerical </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">can even tween smoothly from one keyframe to the next. If this sounds confusing so far, don&#8217;t worry, </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">We&#8217;ll go over the different data types and an example use one by one.</span>
+ </div>
+ <div class="xr_s2" style="position: absolute; left:225px; top:128px; width:309px; height:10px;">
+  <span class="xr_tl xr_s2" style="top: -14.26px;">Adding Variables to an Animation (Pro Only)</span>
+ </div>
+ <a href="getting%20started.htm" onclick="return(xr_nn());">
+  <span class="xr_ar" onmousemove="xr_mo(this,0,event)" style="left: -570px; top: 71px; width: 1900px; height: 24px; background-color: #66ABD2;"></span>
+ </a>
+ <span class="xr_ar" style="left: -577px; top: 0px; width: 1913px; height: 71px; background-color: #2F7FAC;"></span>
+ <div class="Heading_1" style="position: absolute; left:174px; top:47px; width:465px; height:10px;font-size:21.33px;color:#FFFFFF;">
+  <h1 class="xr_tl Heading_1" style="top: -28.97px;font-size:21.33px;color:#FFFFFF;margin:0;"><span class="Heading_1" style="font-size:32px;color:#FFFFFF;">Spriter Pro</span><span class="Heading_1" style="color:#FFFFFF;">&nbsp;User&#8217;s Manual version 1.3</span></h1>
+ </div>
+ <img class="xr_ap" src="index_htm_files/770.jpg" alt="" title="" style="left: 8px; top: 1px; width: 93px; height: 93px;"/>
+ <a href="exporting%20animations%20as%20images%20or%20gifs.htm" onclick="return(xr_nn());">
+  <img class="xr_ap" src="index_htm_files/197.png" alt="" title="" onmousemove="xr_mo(this,0,event)" style="left: 17px; top: 103px; width: 34px; height: 34px;"/>
+ </a>
+ <a href="exporting%20animations%20as%20images%20or%20gifs.htm" onclick="return(xr_nn());">
+  <img class="xr_ap" src="index_htm_files/198.png" alt="" title="" onmousemove="xr_mo(this,0,event)" style="left: 17px; top: 4790px; width: 34px; height: 34px;"/>
+ </a>
+ <a href="adding%20tags%20to%20an%20animation.htm" onclick="return(xr_nn());">
+  <img class="xr_ap" src="index_htm_files/199.png" alt="" title="" onmousemove="xr_mo(this,0,event)" style="left: 710px; top: 4790px; width: 34px; height: 34px;"/>
+ </a>
+ <div class="xr_s3" style="position: absolute; left:42px; top:661px; width:671px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;"><span class="xr_s2" style="">Example: </span>Imagine you were making a game in which there were animated devices on screen that would </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">display specific letters or words, and cycle through, changing the word or letter they display over time, </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">on a loop.&nbsp; The player can click on the device while its displaying that specific letter or word in order to </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">input that specific letter or word to the game, perhaps to solve a puzzle or answer a question.</span>
+  <span class="xr_tl xr_s3" style="top: 74.33px;">Of course you could just check the specific times along the timeline in Spriter where each letter or word </span>
+  <span class="xr_tl xr_s3" style="top: 92.05px;">is displayed and hard-code those time intervals into your game engine to represent each character...but </span>
+  <span class="xr_tl xr_s3" style="top: 109.76px;">not only is this tedious and unintuitive, it would mean if you changed the timing of your animation </span>
+  <span class="xr_tl xr_s3" style="top: 127.48px;">you&#8217;d need to check and replace all your hard-coded time numbers in the game engine which represent </span>
+  <span class="xr_tl xr_s3" style="top: 145.2px;">each letter or word. Luckily, With Spriter pro you can work in a much more intuitive and flexible </span>
+  <span class="xr_tl xr_s3" style="top: 162.92px;">manner.&nbsp; Here&#8217;s how:</span>
+ </div>
+ <div class="xr_s3" style="position: absolute; left:30px; top:1151px; width:693px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;"><span class="xr_s2" style="">1) </span>Expand your timeline panel upward to reveal the timelines for each specific object.&nbsp; If you scroll to the </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">very bottom of all timelines you&#8217;ll see a timeline titled &#8220;meta data&#8221; Double click in the meta data timeline </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">exactly where the first letter or word is visible and should now be clickable to the player.&nbsp; This will bring up </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">a dialogue which you will use to create and edit your &#8220;current word&#8221; variable.&nbsp; Type in the name you&#8217;d like </span>
+  <span class="xr_tl xr_s3" style="top: 56.61px;">for your variable in the find/create variable box at the top-left of the dialogue, then click the &#8220;create </span>
+  <span class="xr_tl xr_s3" style="top: 74.33px;">variable&#8221; box.</span>
+ </div>
+ <div class="xr_s3" style="position: absolute; left:39px; top:302px; width:677px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;">VARIABLES:&nbsp; Variables can be string (text), floats (numbers with decimal points), or integers (whole </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">numbers).&nbsp; You can give variables any name you&#8217;d like, and even give them a default value to start off </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">with. Variables are a way to have your Spriter animations tell your game engine all kinds of information </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">that can change aspects of gameplay, visual que&#8217;s for the user etc. </span>
+  <span class="xr_tl xr_s3" style="top: 74.33px;"><span class="xr_s2" style="">Text Variables: </span>Sometimes text is more useful or easy to understand than numbers, and can either </span>
+  <span class="xr_tl xr_s3" style="top: 92.05px;">communicate a string to your game engine, or directly to the player. </span>
+ </div>
+ <div class="xr_s3" style="position: absolute; left:27px; top:1555px; width:700px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;"><span class="xr_s2" style="">2) </span>This will bring up a second dialogue box which will allow you to set the type (we want text),&nbsp; and the </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">default value.&nbsp; If the animation starts on a specific word or letter you can set&nbsp; that as the default if you&#8217;d like. </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">In this example we&#8217;ll assume the animated device is displaying the letter &#8220;A&#8221; by default.&nbsp; Once you&#8217;ve </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">entered your starting word or letter, (if there is no starting word or letter, just leave the default blank.) click </span>
+  <span class="xr_tl xr_s3" style="top: 56.61px;">&#8220;create variable&#8221;.</span>
+ </div>
+ <img class="xr_ap" src="index_htm_files/251.jpg" alt="" title="" style="left: 198px; top: 890px; width: 330px; height: 197px;"/>
+ <img class="xr_ap" src="index_htm_files/252.jpg" alt="" title="" style="left: 240px; top: 443px; width: 281px; height: 149px;"/>
+ <img class="xr_ap" src="index_htm_files/253.jpg" alt="" title="" style="left: 192px; top: 1287px; width: 370px; height: 224px;"/>
+ <img class="xr_ap" src="index_htm_files/254.jpg" alt="" title="" style="left: 27px; top: 1660px; width: 348px; height: 211px;"/>
+ <img class="xr_ap" src="index_htm_files/255.jpg" alt="" title="" style="left: 386px; top: 1660px; width: 347px; height: 211px;"/>
+ <div class="xr_s3" style="position: absolute; left:27px; top:1914px; width:700px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;"><span class="xr_s2" style="">3) </span>You&#8217;ll now see your variable in the variable list in the &#8220;Edit MetaData&#8221; dialogue box.&nbsp; Click on the </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">&#8220;active in key&#8221; checkbox and this will create a keyframe in the metadata timeline for this new variable.&nbsp; Now </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">you can doubleclick on the &#8220;current value&#8221; box and type in the word or letter that the device animation is </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">currently displaying. Once you&#8217;ve finished typing the letter or word, press enter and then close the dialogue </span>
+  <span class="xr_tl xr_s3" style="top: 56.61px;">box via the red X close icon at the top right of the window. Don&#8217;t worry, your changes will be automatically </span>
+  <span class="xr_tl xr_s3" style="top: 74.33px;">saved. </span>
+ </div>
+ <img class="xr_ap" src="index_htm_files/256.jpg" alt="" title="" style="left: 127px; top: 2027px; width: 500px; height: 268px;"/>
+ <div class="xr_s3" style="position: absolute; left:27px; top:2345px; width:700px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;"><span class="xr_s2" style="">4) </span>Now you should double click later on in the timeline, when the animation is either showing no letter or </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">word, or has changed to a new letter or word. This will bring the &#8220;Edit MetaData&#8221; dialogue back up. Now </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">reselct the variable you&#8217;ve already made by left clicking on it&#8217;s name, and then check the &#8220;active in key&#8221; </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">checkbox again.&nbsp; Now you can double click in the &#8220;current value&#8221; box again and enther the new text value </span>
+  <span class="xr_tl xr_s3" style="top: 56.61px;">for the new letter or word that&#8217;s being displayed by the animation.</span>
+  <span class="xr_tl xr_s3" style="top: 92.05px;">5) Once you&#8217;ve repeated step 4 for the entire animation so that all visible letters have a corresponding text </span>
+  <span class="xr_tl xr_s3" style="top: 109.76px;">value set in the metadata for that portion of the timeline, then save your Spriter project.</span>
+  <span class="xr_tl xr_s3" style="top: 145.2px;">In the game engine itself, once this Spriter file is being read and displayed, the logic of the game engine </span>
+  <span class="xr_tl xr_s3" style="top: 162.92px;">would be something like:</span>
+  <span class="xr_tl xr_s3" style="left: 37.79px; top: 198.35px;">Is the player clicking on the Spriter object displaying the device animation?</span>
+  <span class="xr_tl xr_s3" style="left: 75.59px; top: 216.07px;">If yes, then set the text value of the letter or word to the current value of the &#8220;current word&#8221; </span>
+  <span class="xr_tl xr_s3" style="left: 75.59px; top: 233.79px;">variable from the metadata.</span>
+  <span class="xr_tl xr_s3" style="top: 286.94px;">Then you&#8217;d have the game react accordingly depending on whether or not the word or letter the player </span>
+  <span class="xr_tl xr_s3" style="top: 304.65px;">clicked on was the appropriate answer. </span>
+  <span class="xr_tl xr_s3" style="top: 340.09px;"><span class="xr_s2" style="">INTEGER AND FLOAT VARIABLES </span>work exactly the same, except they are useful when you need to </span>
+  <span class="xr_tl xr_s3" style="top: 357.81px;">communicate changing numerical data to your game engine, depending on the current time of the currently </span>
+  <span class="xr_tl xr_s3" style="top: 375.52px;">playing animation.&nbsp; One cool bonus to numerical variables is that they automatically tween between each of </span>
+  <span class="xr_tl xr_s3" style="top: 393.24px;">their keyframes in the metadata timeline if the numerical value is different on each of the key frames. Don&#8217;t </span>
+  <span class="xr_tl xr_s3" style="top: 410.96px;">forget, with things that tween, you can right click and hold on their specific key frames in the timeline and </span>
+  <span class="xr_tl xr_s3" style="top: 428.68px;">choose the type of tweening you&#8217;d like to use, including no tweening at all. (instant)</span>
+  <span class="xr_tl xr_s3" style="top: 464.11px;"><span class="xr_s2" style="">PER OBJECT METADATA: </span>In the previous example we created a variable in the metadata for the entire </span>
+  <span class="xr_tl xr_s3" style="top: 481.83px;">animation. This is useful if the data you wish to create is relative to the timing of the entire animation, but </span>
+  <span class="xr_tl xr_s3" style="top: 499.55px;">there&#8217;s a better option for when you want to create and communicate value which should related directly to </span>
+  <span class="xr_tl xr_s3" style="top: 517.26px;">specific objects within the animation.</span>
+  <span class="xr_tl xr_s3" style="top: 552.7px;">We&#8217;ll use collision rectangles as an example: </span>
+  <span class="xr_tl xr_s3" style="top: 588.13px;"><span class="xr_s2" style="">Assigning Numeric Data to a collision rectangle: </span>&nbsp;As you might already know, you can place as many </span>
+  <span class="xr_tl xr_s3" style="top: 605.85px;">distinct collision rectangles as you&#8217;d like at any given point along the time line of an animation. Their size, </span>
+  <span class="xr_tl xr_s3" style="top: 623.57px;">shape, and angle can tween between their key frames.&nbsp; Each Collision rectangle can have a different name.&nbsp; </span>
+  <span class="xr_tl xr_s3" style="top: 641.28px;">This alone offers some pretty awesome control of game play related data right within Spriter, but Spriter </span>
+  <span class="xr_tl xr_s3" style="top: 659px;">takes it much further than that.... </span>
+  <span class="xr_tl xr_s3" style="top: 694.44px;"><span class="xr_s2" style="">EXAMPLE: </span>In this example we&#8217;ll be adding a variable to a collision rectangle to control the amount of </span>
+  <span class="xr_tl xr_s3" style="top: 712.15px;">damage it would inflict when it collides with enemies within a game.</span>
+ </div>
+ <img class="xr_ap" src="index_htm_files/257.jpg" alt="" title="" style="left: 136px; top: 3086px; width: 500px; height: 258px;"/>
+ <div class="xr_s3" style="position: absolute; left:27px; top:3374px; width:700px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;"><span class="xr_s2" style="">1)&nbsp; </span>If you click on the little &#8220;+&#8221;icon to the right of the name of any objects timeline in the time line palette it </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">will expand to reveal the metadata timeline for that specific object.&nbsp; This works exactly like the metadata </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">we&#8217;ve created the text variable for earlier, but now this creates variables specifically for that particular </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">object!</span>
+ </div>
+ <img class="xr_ap" src="index_htm_files/258.jpg" alt="" title="" style="left: 136px; top: 3475px; width: 500px; height: 258px;"/>
+ <div class="xr_s3" style="position: absolute; left:27px; top:3779px; width:700px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;"><span class="xr_s2" style="">2)&nbsp; </span>In our example we have a punching animation for a fighting game, with a collision rectangle to designate </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">the part of the animation that should do damage to an enemy character to the game if the rectangle overlaps </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">the enemy. We&#8217;ve named this rectangle &#8220;AttackBox&#8221;.&nbsp; Just as in the previous example for the text variable </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">lets double click in the meta data timeline and add a variable, called &#8220;damage&#8221;, and decide if its type os </span>
+  <span class="xr_tl xr_s3" style="top: 56.61px;">going to be float or integer.&nbsp; For most game types integer would be fine.&nbsp; Lets leave its default value blank, </span>
+  <span class="xr_tl xr_s3" style="top: 74.33px;">and set its current value to 10. Don&#8217;t forget to make sure its set to &#8220;active in key&#8221;.</span>
+ </div>
+ <img class="xr_ap" src="index_htm_files/259.jpg" alt="" title="" style="left: 136px; top: 3900px; width: 500px; height: 257px;"/>
+ <div class="xr_s3" style="position: absolute; left:27px; top:4201px; width:700px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;"><span class="xr_s2" style="">3) </span>&nbsp;Now we&#8217;ll do the same thing, when the punch is at its apex (when it would do the most damage on </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">impact) and well double click at that spot further along in the timeline so we can set the &#8220;current value&#8221; to a </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">higher number. So lets check the &#8220;active in key&#8221; box, then double click the &#8220;current value&#8221; box and then set </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">it to 20.</span>
+  <span class="xr_tl xr_s2" style="top: 74.33px;">In your game&#8217;s engine, the logic would be something like this:</span>
+  <span class="xr_tl xr_s3" style="left: 37.79px; top: 109.76px;">Upon overlap of player Damage Collision box and an enemy.</span>
+  <span class="xr_tl xr_s3" style="left: 37.79px; top: 127.48px;">AND the enemy is in a state where it can take damage. </span>
+  <span class="xr_tl xr_s3" style="left: 75.59px; top: 145.2px;">THEN make the enemy play his taking damage animation.</span>
+  <span class="xr_tl xr_s3" style="left: 75.59px; top: 162.92px;">AND temporarily set the enemy&#8217;s state so it can no longer take damage. AND subtract the </span>
+  <span class="xr_tl xr_s3" style="left: 37.79px; top: 180.63px;">current value of the Variable :Damage&#8221; from the Collision Rectangle called &#8220;Damage&#8221; from the </span>
+  <span class="xr_tl xr_s3" style="left: 37.79px; top: 198.35px;">hitpoints of that specific enemy. </span>
+  <span class="xr_tl xr_s3" style="top: 233.79px;">As you can see, Spriter makes creating, editing and tweaking game play related data, and synchronizing it </span>
+  <span class="xr_tl xr_s3" style="top: 251.5px;">perfectly with each animation very easy and intuitive.&nbsp; In this example, not only have we included the hit </span>
+  <span class="xr_tl xr_s3" style="top: 269.22px;">strength of a punch right into its collision rectangle, but we even made the number tween and change </span>
+  <span class="xr_tl xr_s3" style="top: 286.94px;">depending on how much damage that punch in motion would inflict if it collided with an enemy at that </span>
+  <span class="xr_tl xr_s3" style="top: 304.65px;">specific millisecond!</span>
+  <span class="xr_tl xr_s3" style="top: 340.09px;">Be sure to read the next section: &#8220;Adding &#8220;Tags&#8221; to an Animation&#8221;, because Tags are the other, super </span>
+  <span class="xr_tl xr_s3" style="top: 357.81px;">powerful and flexible half of the example logic I provided above for the collision box delivering the damage </span>
+  <span class="xr_tl xr_s3" style="top: 375.52px;">ot the enemy. Specifically the portion:&#8220;AND the enemy is in a state where it can take damage.&#8221;</span>
+  <span class="xr_tl xr_s3" style="top: 410.96px;">Tags are Spriters easy and intuitive way to designate what &#8220;state&#8221; your entity or character is in at any </span>
+  <span class="xr_tl xr_s3" style="top: 428.68px;">moment along the time line of each animation.</span>
+ </div>
+ <div class="Normal_text" style="position: absolute; left:108px; top:87px; width:38px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="index.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Index</a></span>
+ </div>
+ <div class="Normal_text" style="position: absolute; left:174px; top:87px; width:77px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="getting%20started.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Quick-start</a></span>
+ </div>
+ <div class="Normal_text" style="position: absolute; left:271px; top:87px; width:103px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="placing%20a%20sprite.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Adding Sprites</a></span>
+ </div>
+ <div class="Normal_text" style="position: absolute; left:403px; top:87px; width:44px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="creating%20and%20assigning%20bones.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Bones</a></span>
+ </div>
+ <div class="Normal_text" style="position: absolute; left:472px; top:87px; width:70px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="animating%20sprites%20and%20bones.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Animating</a></span>
+ </div>
+ <div class="Normal_text" style="position: absolute; left:570px; top:87px; width:112px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="what%20are%20character%20maps.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Character Maps</a></span>
+ </div>
+ <div id="xr_xo0" class="xr_ap" style="left:0; top:0; width:760px; height:100px; visibility:hidden; z-index:3;">
+ <a href="" onclick="return(false);" onmousedown="xr_ppir(this);">
+ </a>
+ </div>
+ <a href="adding%20tags%20to%20an%20animation.htm" onclick="return(xr_nn());">
+  <img class="xr_ap" src="index_htm_files/200.png" alt="" title="" onmousemove="xr_mo(this,0,event)" style="left: 710px; top: 103px; width: 34px; height: 34px;"/>
+ </a>
+ <div id="xr_xd0"></div>
+</div>
+</div>
+</div>
+<!--[if lt IE 7]><script type="text/javascript" src="index_htm_files/png.js"></script><![endif]-->
+<!--[if IE]><script type="text/javascript">xr_aeh()</script><![endif]--><!--[if !IE]>--><script type="text/javascript">xr_htm();repMobFonts();window.addEventListener('load', xr_aeh, false);</script><!--<![endif]-->
+</body>
+</html>

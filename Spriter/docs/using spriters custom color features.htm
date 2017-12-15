@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
+ <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"/>
+ <meta name="Generator" content="Xara HTML filter v.8.1.1.476"/>
+ <meta name="XAR Files" content="index_htm_files/xr_files.txt"/>
+ <title>using spriters custom color features</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
+
+
+
+ <script language="JavaScript" type="text/javascript">document.documentElement.className="xr_bgh27";</script>
+ <link rel="stylesheet" type="text/css" href="index_htm_files/xr_main.css"/>
+ <link rel="stylesheet" type="text/css" href="index_htm_files/xr_text.css"/>
+ <link rel="stylesheet" type="text/css" href="index_htm_files/custom_styles.css"/>
+ <script type="text/javascript" src="index_htm_files/roe.js"></script>
+ <script type="text/javascript" src="index_htm_files/replaceMobileFonts.js"></script>
+ <link rel="stylesheet" type="text/css" href="index_htm_files/ani.css"/>
+</head>
+<body class="xr_bgb27">
+<div class="xr_ap" id="xr_xr" style="width: 760px; height: 4143px; top:0px; left:50%; margin-left: -380px; text-align: left;">
+ <script type="text/javascript">var xr_xr=document.getElementById("xr_xr")</script>
+<div id="xr_td" class="xr_td">
+<div class="xr_ap xr_xri_" style="width: 760px; height: 4143px;">
+ <span class="xr_ar" style="left: -564px; top: 4078px; width: 1900px; height: 65px; background-color: #2F7FAC;"></span>
+ <div class="xr_s3" style="position: absolute; left:36px; top:189px; width:683px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;">As you may have read by now with Spriter&#8217;s &#8220;Character Maps&#8221; feature, you can set up your Spriter </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">project to allow for real-time swapping or hiding of any of the used images in order to create large </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">varieties of possible visual combinations, for alternate characters, outfits, etc. It&#8217;s possible to greatly </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">expand on this level of customization by adding the ability to exchange and combine color combinations </span>
+  <span class="xr_tl xr_s3" style="top: 56.61px;">as well.</span>
+  <span class="xr_tl xr_s3" style="top: 92.05px;">Our RPG Heroes Art Pack uses this combination of Character Maps and Custom Color Palette </span>
+  <span class="xr_tl xr_s3" style="top: 109.76px;">manipulation to offer a massive assortment of possible character combinations to the user.&nbsp; While this is </span>
+  <span class="xr_tl xr_s3" style="top: 127.48px;">feature does offer some great benefits, it&#8217;s much more complicated to use than Character Maps, and puts&nbsp; </span>
+  <span class="xr_tl xr_s3" style="top: 145.2px;">much stronger technical demands on the artist creating the images.</span>
+  <span class="xr_tl xr_s3" style="top: 180.63px;">Another thing that is very important to keep in mind is that at the time this manual is being written, no </span>
+  <span class="xr_tl xr_s3" style="top: 198.35px;">Spriter run-time (plug-in) for any language or authoring system has support for using these Color Palette </span>
+  <span class="xr_tl xr_s3" style="top: 216.07px;">manipulations at run time. This means unless you confirm that the runtime you&#8217;ll be using for your game </span>
+  <span class="xr_tl xr_s3" style="top: 233.79px;">authoring system of choice actually supports the Color Palette features, then be sure you are using it only </span>
+  <span class="xr_tl xr_s3" style="top: 251.5px;">for creating exported full frame images or sprite sheets, or, to <a href="colored%20clones%20of%20your%20project.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >&#8220;bake out&#8221;</a>&nbsp;the final Color Palette </span>
+  <span class="xr_tl xr_s3" style="top: 269.22px;">combination to all images permanently before using them in your game engine.</span>
+  <span class="xr_tl xr_s2" style="top: 322.37px;">Here&#8217;s how it works:</span>
+  <span class="xr_tl xr_s3" style="top: 357.81px;">The most important thing to know if you want to use this feature is the difference between &#8220;full color&#8221; </span>
+  <span class="xr_tl xr_s3" style="top: 375.52px;">images and &#8220;indexed color&#8221; images&#8221;:</span>
+  <span class="xr_tl xr_s3" style="left: 37.79px; top: 410.96px;">&nbsp;<span class="xr_s2" style="">Full color images</span>&nbsp;contain the full color information for every </span>
+  <span class="xr_tl xr_s3" style="top: 428.68px;">pixel of the image, as well as the level of opacity for each pixel. This </span>
+  <span class="xr_tl xr_s3" style="top: 446.39px;">makes the file size much larger, but allows for absolute freedom for the </span>
+  <span class="xr_tl xr_s3" style="top: 464.11px;">artist at the time of creating the artwork. This is what&#8217;s typically used </span>
+  <span class="xr_tl xr_s3" style="top: 481.83px;">in modern games and web graphics.</span>
+  <span class="xr_tl xr_s3" style="left: 415px; top: 623.57px;"><span class="xr_s2" style="">Indexed color images </span>allow for a </span>
+  <span class="xr_tl xr_s3" style="left: 415px; top: 641.28px;">limited number of colors that all pixels </span>
+  <span class="xr_tl xr_s3" style="left: 415px; top: 659px;">must share from. This limited set of </span>
+  <span class="xr_tl xr_s3" style="left: 415px; top: 676.72px;">colors is often referred to as the color </span>
+  <span class="xr_tl xr_s3" style="left: 415px; top: 694.44px;">&#8220;palette&#8221;, and each color in the palette </span>
+  <span class="xr_tl xr_s3" style="left: 415px; top: 712.15px;">has an index (a number) color index zero </span>
+  <span class="xr_tl xr_s3" style="left: 415px; top: 729.87px;">would mean the first color, index 255 </span>
+  <span class="xr_tl xr_s3" style="left: 415px; top: 747.59px;">would be the last color (256 colors total).&nbsp; </span>
+  <span class="xr_tl xr_s3" style="left: 415px; top: 765.31px;">This type of images takes up less file </span>
+  <span class="xr_tl xr_s3" style="left: 415px; top: 783.02px;">space because instead of having full </span>
+  <span class="xr_tl xr_s3" style="left: 415px; top: 800.74px;">color data for every last pixel, it simply </span>
+  <span class="xr_tl xr_s3" style="left: 415px; top: 818.46px;">has the color index from the palette that </span>
+  <span class="xr_tl xr_s3" style="left: 415px; top: 836.17px;">any given pixel should use. The other </span>
+  <span class="xr_tl xr_s3" style="left: 415px; top: 853.89px;">benefit of indexed color images is, that </span>
+  <span class="xr_tl xr_s3" style="left: 415px; top: 871.61px;">with programming tricks, tools like </span>
+  <span class="xr_tl xr_s3" style="left: 415px; top: 889.33px;">Spriter can allow users to customize </span>
+  <span class="xr_tl xr_s3" style="top: 907.04px;">these &#8220;color palettes&#8221; on the fly, so suddenly, the user is not just choosing from 5 different style of shirts </span>
+  <span class="xr_tl xr_s3" style="top: 924.76px;">for example, but can now also mix and match from an nearly unlimited number of color options for each </span>
+  <span class="xr_tl xr_s3" style="top: 942.48px;">shirt style as well!&nbsp; On top of the limited number of colors however, there are other trade-offs when using </span>
+  <span class="xr_tl xr_s3" style="top: 960.2px;">indexed color mode. </span>
+  <span class="xr_tl xr_s3" style="left: 37.79px; top: 977.91px;">a) In most or all modern digital painting tools, the vast majority of features will not work in indexed </span>
+  <span class="xr_tl xr_s3" style="top: 995.63px;">color mode! For this reason, if you&#8217;d like to use the color features, we recommend you find and learn a </span>
+  <span class="xr_tl xr_s3" style="top: 1013.35px;">pixel-art program, specialized for working in indexed color mode. The one I&#8217;ll be using in all the tutorials </span>
+  <span class="xr_tl xr_s3" style="top: 1031.07px;">will be Pro Motion NG by <a href="http://www.cosmigo.com/" target="_self" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >www.cosmigo.com</a></span>
+  <span class="xr_tl xr_s3" style="left: 37.79px; top: 1438.56px;">b) because there is no alpha (opacity) level data per pixel, there&#8217;s no semi-transparent anti-aliasing </span>
+  <span class="xr_tl xr_s3" style="top: 1456.28px;">around the edges of your art. This means you need to take your time and be more precise with your art-</span>
+  <span class="xr_tl xr_s3" style="left: 503px; top: 1474px;">work and make sure the </span>
+  <span class="xr_tl xr_s3" style="left: 503px; top: 1491.72px;">outlines are as clean as </span>
+  <span class="xr_tl xr_s3" style="left: 503px; top: 1509.43px;">possible to ensure high </span>
+  <span class="xr_tl xr_s3" style="left: 503px; top: 1527.15px;">visual quality of the final </span>
+  <span class="xr_tl xr_s3" style="left: 503px; top: 1544.87px;">animations in game.</span>
+  <span class="xr_tc xr_s2" style="left: 534.52px; top: 1580.3px; width: 115px;">HERE&#8217;S HOW</span>
+  <span class="xr_tl xr_s3" style="left: 503px; top: 1615.74px;"><span class="xr_s2" style="">1) </span>Use a pixel art program </span>
+  <span class="xr_tl xr_s3" style="left: 503px; top: 1633.45px;">like Pro Motion, create </span>
+  <span class="xr_tl xr_s3" style="left: 503px; top: 1651.17px;">your art, making sure all </span>
+  <span class="xr_tl xr_s3" style="left: 503px; top: 1668.89px;">aspects/images for the </span>
+  <span class="xr_tl xr_s3" style="left: 503px; top: 1686.61px;">animations you&#8217;ll be </span>
+  <span class="xr_tl xr_s3" style="left: 503px; top: 1704.32px;">creating are using the </span>
+  <span class="xr_tl xr_s3" style="left: 503px; top: 1722.04px;">same, organized color </span>
+  <span class="xr_tl xr_s3" style="left: 503px; top: 1739.76px;">palette&#8230; for example, </span>
+  <span class="xr_tl xr_s3" style="left: 503px; top: 1757.48px;">make sure all color ranges </span>
+  <span class="xr_tl xr_s3" style="top: 1775.19px;">are from light to dark, make color indexes 1 through 8 the colors used for skin (color zero typically </span>
+  <span class="xr_tl xr_s3" style="top: 1792.91px;">reserved for the transparent background color) Be sure to save your images out with color zero (the </span>
+  <span class="xr_tl xr_s3" style="top: 1810.63px;">background color) set to transparent.</span>
+  <span class="xr_tl xr_s2" style="top: 1846.06px;">IMPORTANT: Be sure to make sure you&#8217;re saving your images in indexed color mode and that you </span>
+  <span class="xr_tl xr_s2" style="top: 1863.78px;">do not have the program set to &#8220;save in lowest bit depth&#8221; or &#8220;save with fewest colors&#8221; as these </span>
+  <span class="xr_tl xr_s2" style="top: 1881.5px;">settings would destroy the order of the color palette.</span>
+  <span class="xr_tl xr_s3" style="top: 1916.93px;"><span class="xr_s2" style="">2) </span>Now that your Spriter project has images to use and you&#8217;ve started to assemble your animations, you </span>
+  <span class="xr_tl xr_s3" style="top: 1934.65px;">may be ready to explore color palette customization options. In order to do this, the first thing you&#8217;ll need </span>
+  <span class="xr_tl xr_s3" style="top: 1952.37px;">to do is create a folder called &#8220;_palettes&#8221; in the root folder of your Spriter Project. It must have that exact </span>
+  <span class="xr_tl xr_s3" style="top: 1970.08px;">name. You can then set up sub folders (named whatever you&#8217;d like) within the &#8220;_palettes&#8221; folder. </span>
+  <span class="xr_tl xr_s3" style="top: 2023.24px;"><span class="xr_s2" style="">3)</span>&nbsp;Now you have to create special palette image files (in your &#8220;_palettes&#8221; folder) which will give Spriter </span>
+  <span class="xr_tl xr_s3" style="top: 2040.95px;">the color data needed for the colors you want this palette image to change.&nbsp; Let&#8217;s get back to the idea of </span>
+  <span class="xr_tl xr_s3" style="top: 2058.67px;">skin tones.&nbsp; In this example, lets say you had used the first several indexes (after index zero, which is </span>
+  <span class="xr_tl xr_s3" style="top: 2076.39px;">transparent) for skin tones in all your images. To create a palette image to allow for applying a new skin </span>
+  <span class="xr_tl xr_s3" style="top: 2094.11px;">tone, you&#8217;d need to edit those specific color indexes in an images to have the new skin colors.</span>
+  <span class="xr_tl xr_s3" style="left: 507px; top: 2129.54px;">I highly recommend you </span>
+  <span class="xr_tl xr_s3" style="left: 507px; top: 2147.26px;">create a custom 32x32 </span>
+  <span class="xr_tl xr_s3" style="left: 507px; top: 2164.97px;">pixel image representing </span>
+  <span class="xr_tl xr_s3" style="left: 507px; top: 2182.69px;">what the palette image will </span>
+  <span class="xr_tl xr_s3" style="left: 507px; top: 2200.41px;">be effecting, and which </span>
+  <span class="xr_tl xr_s3" style="left: 507px; top: 2218.13px;">uses those specific color </span>
+  <span class="xr_tl xr_s3" style="left: 507px; top: 2235.84px;">indexes.&nbsp; Look how for the </span>
+  <span class="xr_tl xr_s3" style="left: 507px; top: 2253.56px;">RPG Heroes Pack, I made </span>
+  <span class="xr_tl xr_s3" style="left: 507px; top: 2271.28px;">the skin-tone palette </span>
+  <span class="xr_tl xr_s3" style="left: 507px; top: 2289px;">images look like a blank </span>
+  <span class="xr_tl xr_s3" style="left: 507px; top: 2306.71px;">face. This allows the user </span>
+  <span class="xr_tl xr_s3" style="left: 507px; top: 2324.43px;">to instantly recognize both </span>
+  <span class="xr_tl xr_s3" style="left: 507px; top: 2342.15px;">what the image will effect, </span>
+  <span class="xr_tl xr_s3" style="left: 507px; top: 2359.87px;">AND what the new skin-</span>
+  <span class="xr_tl xr_s3" style="left: 507px; top: 2377.58px;">tone will look like.</span>
+  <span class="xr_tl xr_s3" style="top: 2430.73px;">IMPORTANT: Aside from making sure all images use the same palette arrangement (same indexes being </span>
+  <span class="xr_tl xr_s3" style="top: 2448.45px;">used for the same things, such as skin tones), the most important thing you need to remember is that ALL </span>
+  <span class="xr_tl xr_s3" style="top: 2466.17px;">color indexes other than the colors you want your palette image to effect MUST be set to what is called </span>
+  <span class="xr_tl xr_s3" style="top: 2483.89px;">&#8220;programmer pink&#8221;. This is RGB value 255,0,255 or hex(web) value: ff00ff&nbsp; . This is how Spriter knows </span>
+  <span class="xr_tl xr_s3" style="top: 2501.6px;">which colors to effect when the user selects that particular palette image.</span>
+  <span class="xr_tl xr_s3" style="top: 2554.76px;">Once your Spriter project has animations or frames made of indexed images, and palette files ready to </span>
+  <span class="xr_tl xr_s3" style="top: 2572.47px;">effect them, you&#8217;re ready to start applying the palette files to the current character map &#8220;stack&#8221; so that you </span>
+  <span class="xr_tl xr_s3" style="top: 2590.19px;">can create custom visual variations for your animations.</span>
+  <span class="xr_tc xr_s2" style="left: 218.3px; top: 2625.63px; width: 244px;">To do so, you&#8216;d do the following:</span>
+  <span class="xr_tl xr_s3" style="left: 417px; top: 2661.06px;"><span class="xr_s2" style="">1) </span>Click the &#8220;Char Maps&#8221; button at the </span>
+  <span class="xr_tl xr_s3" style="left: 417px; top: 2678.78px;">top right of the animations palette to </span>
+  <span class="xr_tl xr_s3" style="left: 417px; top: 2696.49px;">bring up the Character Maps dialogue. </span>
+  <span class="xr_tl xr_s3" style="left: 417px; top: 2714.21px;">Then click the small painting palette </span>
+  <span class="xr_tl xr_s3" style="left: 417px; top: 2731.93px;">looking icon at the bottom right of the </span>
+  <span class="xr_tl xr_s3" style="left: 417px; top: 2749.65px;">Character Maps dialogue.&nbsp; This will </span>
+  <span class="xr_tl xr_s3" style="left: 417px; top: 2767.36px;">bring up the &#8220;Color Palette Dialogue&#8221;</span>
+  <span class="xr_tl xr_s3" style="top: 3192.58px;"><span class="xr_s2" style="">2) </span>Now just navigate through the palette </span>
+  <span class="xr_tl xr_s3" style="top: 3210.3px;">image files in the &#8220;_palettes&#8221; folder, left </span>
+  <span class="xr_tl xr_s3" style="top: 3228.01px;">click on any image who&#8217;s colors you&#8217;d </span>
+  <span class="xr_tl xr_s3" style="top: 3245.73px;">like to effect your animations. If you </span>
+  <span class="xr_tl xr_s3" style="top: 3263.45px;">change your mind about a specific change </span>
+  <span class="xr_tl xr_s3" style="top: 3281.17px;">you&#8217;ve made, just left click that palette </span>
+  <span class="xr_tl xr_s3" style="top: 3298.88px;">image one more time and it will remove </span>
+  <span class="xr_tl xr_s3" style="top: 3316.6px;">its effect. </span>
+  <span class="xr_tl xr_s3" style="top: 3387.47px;"><span class="xr_s2" style="">3) </span>Once you&#8217;re finished applying all of </span>
+  <span class="xr_tl xr_s3" style="top: 3405.19px;">the image palettes you&#8217;d like, click OK at </span>
+  <span class="xr_tl xr_s3" style="top: 3422.91px;">the bottom right of the &#8220;Color Palettes </span>
+  <span class="xr_tl xr_s3" style="top: 3440.62px;">Dialogue&#8221;, then be sure to save the </span>
+  <span class="xr_tl xr_s3" style="top: 3458.34px;">character file (scms), which will save not </span>
+  <span class="xr_tl xr_s3" style="top: 3476.06px;">only the current color palette </span>
+  <span class="xr_tl xr_s3" style="top: 3493.77px;">configuration, but also any active </span>
+  <span class="xr_tl xr_s3" style="top: 3511.49px;">character maps into a single small file you </span>
+  <span class="xr_tl xr_s3" style="top: 3529.21px;">can reload any time you want to edit or </span>
+  <span class="xr_tl xr_s3" style="top: 3546.93px;">re-export animations for this specific </span>
+  <span class="xr_tl xr_s3" style="top: 3564.64px;">custom appearance.&nbsp; To save the character </span>
+  <span class="xr_tl xr_s3" style="top: 3582.36px;">file, just click the small blue disk icon at </span>
+  <span class="xr_tl xr_s3" style="top: 3600.08px;">the lower-left of the &#8220;Character Maps&#8221; </span>
+  <span class="xr_tl xr_s3" style="top: 3617.8px;">dialogue, then choose the name and </span>
+  <span class="xr_tl xr_s3" style="top: 3635.51px;">location for your file and click &#8220;Save&#8221;.</span>
+  <span class="xr_tl xr_s3" style="top: 3724.1px;">&nbsp;&nbsp; </span>
+ </div>
+ <div class="xr_s2" style="position: absolute; left:247px; top:128px; width:266px; height:10px;">
+  <span class="xr_tl xr_s2" style="top: -14.26px;">Using Spriter&#8217;s Custom Color Features</span>
+ </div>
+ <a href="getting%20started.htm" onclick="return(xr_nn());">
+  <span class="xr_ar" onmousemove="xr_mo(this,0,event)" style="left: -570px; top: 71px; width: 1900px; height: 24px; background-color: #66ABD2;"></span>
+ </a>
+ <span class="xr_ar" style="left: -577px; top: 0px; width: 1913px; height: 71px; background-color: #2F7FAC;"></span>
+ <div class="Heading_1" style="position: absolute; left:174px; top:47px; width:465px; height:10px;font-size:21.33px;color:#FFFFFF;">
+  <h1 class="xr_tl Heading_1" style="top: -28.97px;font-size:21.33px;color:#FFFFFF;margin:0;"><span class="Heading_1" style="font-size:32px;color:#FFFFFF;">Spriter Pro</span><span class="Heading_1" style="color:#FFFFFF;">&nbsp;User&#8217;s Manual version 1.3</span></h1>
+ </div>
+ <img class="xr_ap" src="index_htm_files/770.jpg" alt="" title="" style="left: 8px; top: 1px; width: 93px; height: 93px;"/>
+ <a href="creating%20custom%20trimming%20settings%20for%20each%20animation.htm" onclick="return(xr_nn());">
+  <img class="xr_ap" src="index_htm_files/197.png" alt="" title="" onmousemove="xr_mo(this,0,event)" style="left: 17px; top: 103px; width: 34px; height: 34px;"/>
+ </a>
+ <a href="creating%20custom%20trimming%20settings%20for%20each%20animation.htm" onclick="return(xr_nn());">
+  <img class="xr_ap" src="index_htm_files/198.png" alt="" title="" onmousemove="xr_mo(this,0,event)" style="left: 17px; top: 4027px; width: 34px; height: 34px;"/>
+ </a>
+ <a href="exporting%20animations%20as%20images%20or%20gifs.htm" onclick="return(xr_nn());">
+  <img class="xr_ap" src="index_htm_files/199.png" alt="" title="" onmousemove="xr_mo(this,0,event)" style="left: 710px; top: 4027px; width: 34px; height: 34px;"/>
+ </a>
+ <img class="xr_ap" src="index_htm_files/428.jpg" alt="" title="" style="left: 34px; top: 1251px; width: 692px; height: 368px;"/>
+ <img class="xr_ap" src="index_htm_files/429.jpg" alt="" title="" style="left: 34px; top: 1683px; width: 500px; height: 264px;"/>
+ <img class="xr_ap" src="index_htm_files/430.jpg" alt="" title="" style="left: 31px; top: 2325px; width: 500px; height: 267px;"/>
+ <img class="xr_ap" src="index_htm_files/431.jpg" alt="" title="" style="left: 36px; top: 2853px; width: 405px; height: 500px;"/>
+ <img class="xr_ap" src="index_htm_files/432.jpg" alt="" title="" style="left: 320px; top: 3386px; width: 395px; height: 500px;"/>
+ <img class="xr_ap" src="index_htm_files/433.jpg" alt="" title="" style="left: 47px; top: 811px; width: 392px; height: 270px;"/>
+ <img class="xr_ap" src="index_htm_files/434.jpg" alt="" title="" style="left: 493px; top: 590px; width: 227px; height: 178px;"/>
+ <div class="Normal_text" style="position: absolute; left:108px; top:87px; width:38px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="index.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Index</a></span>
+ </div>
+ <div class="Normal_text" style="position: absolute; left:174px; top:87px; width:77px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="getting%20started.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Quick-start</a></span>
+ </div>
+ <div class="Normal_text" style="position: absolute; left:271px; top:87px; width:103px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="placing%20a%20sprite.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Adding Sprites</a></span>
+ </div>
+ <div class="Normal_text" style="position: absolute; left:403px; top:87px; width:44px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="creating%20and%20assigning%20bones.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Bones</a></span>
+ </div>
+ <div class="Normal_text" style="position: absolute; left:472px; top:87px; width:70px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="animating%20sprites%20and%20bones.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Animating</a></span>
+ </div>
+ <div class="Normal_text" style="position: absolute; left:570px; top:87px; width:112px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="what%20are%20character%20maps.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Character Maps</a></span>
+ </div>
+ <div id="xr_xo0" class="xr_ap" style="left:0; top:0; width:760px; height:100px; visibility:hidden; z-index:3;">
+ <a href="" onclick="return(false);" onmousedown="xr_ppir(this);">
+ </a>
+ </div>
+ <a href="exporting%20animations%20as%20images%20or%20gifs.htm" onclick="return(xr_nn());">
+  <img class="xr_ap" src="index_htm_files/200.png" alt="" title="" onmousemove="xr_mo(this,0,event)" style="left: 710px; top: 103px; width: 34px; height: 34px;"/>
+ </a>
+ <div id="xr_xd0"></div>
+</div>
+</div>
+</div>
+<!--[if lt IE 7]><script type="text/javascript" src="index_htm_files/png.js"></script><![endif]-->
+<!--[if IE]><script type="text/javascript">xr_aeh()</script><![endif]--><!--[if !IE]>--><script type="text/javascript">xr_htm();repMobFonts();window.addEventListener('load', xr_aeh, false);</script><!--<![endif]-->
+</body>
+</html>

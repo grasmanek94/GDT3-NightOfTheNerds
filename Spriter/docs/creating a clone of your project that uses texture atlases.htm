@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
+ <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"/>
+ <meta name="Generator" content="Xara HTML filter v.8.1.1.476"/>
+ <meta name="XAR Files" content="index_htm_files/xr_files.txt"/>
+ <title>creating a clone of your project that uses texture atlases</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
+
+
+
+ <script language="JavaScript" type="text/javascript">document.documentElement.className="xr_bgh25";</script>
+ <link rel="stylesheet" type="text/css" href="index_htm_files/xr_main.css"/>
+ <link rel="stylesheet" type="text/css" href="index_htm_files/xr_text.css"/>
+ <link rel="stylesheet" type="text/css" href="index_htm_files/custom_styles.css"/>
+ <script type="text/javascript" src="index_htm_files/roe.js"></script>
+ <script type="text/javascript" src="index_htm_files/replaceMobileFonts.js"></script>
+ <link rel="stylesheet" type="text/css" href="index_htm_files/ani.css"/>
+</head>
+<body class="xr_bgb25">
+<div class="xr_ap" id="xr_xr" style="width: 760px; height: 3598px; top:0px; left:50%; margin-left: -380px; text-align: left;">
+ <script type="text/javascript">var xr_xr=document.getElementById("xr_xr")</script>
+<div id="xr_td" class="xr_td">
+<div class="xr_ap xr_xri_" style="width: 760px; height: 3598px;">
+ <div class="xr_s3" style="position: absolute; left:36px; top:698px; width:679px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;">IMPORTANT: At the time this manual was created, due to this being a new feature, none of the official </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">Spriter implementations support playback of Spriter files which use these texture-atlases. While we&#8217;ll do </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">our best to make sure our official reference implementations include support for this feature in the near </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">future, we can&#8217;t guarantee how soon, and have no control over if or when support will be ported to 3rd </span>
+  <span class="xr_tl xr_s3" style="top: 56.61px;">party Spriter API&#8217;s. For this reason, before using this feature, be sure to make sure whichever authoring </span>
+  <span class="xr_tl xr_s3" style="top: 74.33px;">system you will be using has support for Spriter and texture atlases. </span>
+ </div>
+ <span class="xr_ar" style="left: -564px; top: 3533px; width: 1900px; height: 65px; background-color: #2F7FAC;"></span>
+ <div class="xr_s3" style="position: absolute; left:36px; top:189px; width:353px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;">While Spriter allows you the convenience of using </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">separate image files and effortlessly adding new ones </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">needed to your project as needed, an actual game </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">engine benefits from having the source images for </span>
+  <span class="xr_tl xr_s3" style="top: 56.61px;">animations consolidated into texture atlases.&nbsp; A texture </span>
+  <span class="xr_tl xr_s3" style="top: 74.33px;">atlas is a single large image which contains multiple </span>
+  <span class="xr_tl xr_s3" style="top: 92.05px;">images, along with a text files (in this case .json </span>
+  <span class="xr_tl xr_s3" style="top: 109.76px;">format) which tells your game engine the position, </span>
+  <span class="xr_tl xr_s3" style="top: 127.48px;">size, and name of each individual image in the texture </span>
+  <span class="xr_tl xr_s3" style="top: 145.2px;">atlas image.</span>
+ </div>
+ <div class="xr_s2" style="position: absolute; left:380px; top:124px; width:435px; height:10px;">
+  <span class="xr_tc xr_s2" style="left: -239.88px; top: -14.26px; width: 480px;">Creating a Texture Atlas using Clone of Your Project (Pro Only)</span>
+ </div>
+ <a href="getting%20started.htm" onclick="return(xr_nn());">
+  <span class="xr_ar" onmousemove="xr_mo(this,0,event)" style="left: -570px; top: 71px; width: 1900px; height: 24px; background-color: #66ABD2;"></span>
+ </a>
+ <span class="xr_ar" style="left: -577px; top: 0px; width: 1913px; height: 71px; background-color: #2F7FAC;"></span>
+ <div class="Heading_1" style="position: absolute; left:174px; top:47px; width:465px; height:10px;font-size:21.33px;color:#FFFFFF;">
+  <h1 class="xr_tl Heading_1" style="top: -28.97px;font-size:21.33px;color:#FFFFFF;margin:0;"><span class="Heading_1" style="font-size:32px;color:#FFFFFF;">Spriter Pro</span><span class="Heading_1" style="color:#FFFFFF;">&nbsp;User&#8217;s Manual version 1.3</span></h1>
+ </div>
+ <img class="xr_ap" src="index_htm_files/770.jpg" alt="" title="" style="left: 8px; top: 1px; width: 93px; height: 93px;"/>
+ <a href="texturepacker%20support.htm" onclick="return(xr_nn());">
+  <img class="xr_ap" src="index_htm_files/197.png" alt="" title="" onmousemove="xr_mo(this,0,event)" style="left: 17px; top: 103px; width: 34px; height: 34px;"/>
+ </a>
+ <a href="texturepacker%20support.htm" onclick="return(xr_nn());">
+  <img class="xr_ap" src="index_htm_files/198.png" alt="" title="" onmousemove="xr_mo(this,0,event)" style="left: 17px; top: 3482px; width: 34px; height: 34px;"/>
+ </a>
+ <a href="creating%20custom%20trimming%20settings%20for%20each%20animation.htm" onclick="return(xr_nn());">
+  <img class="xr_ap" src="index_htm_files/199.png" alt="" title="" onmousemove="xr_mo(this,0,event)" style="left: 710px; top: 3482px; width: 34px; height: 34px;"/>
+ </a>
+ <div class="xr_s3" style="position: absolute; left:36px; top:579px; width:679px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;">While some authoring systems like Unity and Construct 2 have automatic methods to handle the </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">individual images and consolidate them into texture atlases, other languages or authoring systems might </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">not have such built in functionality. Luckily, Spriter Pro has a built-in feature which will allow you to </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">take your Spriter project you&#8217;ve made with separate images, and create a clone of it which will use </span>
+  <span class="xr_tl xr_s3" style="top: 56.61px;">optimized texture atlases.</span>
+ </div>
+ <div class="xr_s2" style="position: absolute; left:36px; top:840px; width:679px; height:10px;">
+  <span class="xr_tl xr_s2" style="top: -14.26px;">Here&#8217;s how to do it.</span>
+ </div>
+ <div class="xr_s3" style="position: absolute; left:36px; top:895px; width:334px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;">1) Once your Spriter project is finished, choose </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">File/Generate spritesheets for project images from </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">Spriter&#8217;s menu. </span>
+ </div>
+ <div class="xr_s3" style="position: absolute; left:41px; top:1205px; width:679px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;">2) The &#8221;pack images&#8221;dialogue and a small pop-up will appear.&nbsp; The pop up is telling you to select a target </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">folder for the texture atlases and clone project which will be created. Click OK and then a file selector </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">dialogue will appear. Pick your destination folder and type the name prefix you&#8217;d like the generated files </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">to have. Then click OK.</span>
+ </div>
+ <div class="xr_s3" style="position: absolute; left:36px; top:1633px; width:679px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;">3) Now you have access to all the settings in the &#8220;pack images&#8221; dialogue. The first thing to do is decide if </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">you just want to create texture atlases or if you want texture atlases AND a clone of your Spriter project </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">which will use them instead of the separate images. If the later is the case, then make sure the &#8220;save </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">spritesheeted project&#8221; checkbox is checked. </span>
+ </div>
+ <div class="xr_s3" style="position: absolute; left:36px; top:1993px; width:679px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;">4) The next thing you&#8217;ll want to do is decide how Spriter will organize the images when creating the </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">atlases. In the &#8220;multiple spritesheets&#8221;, select from one of the following options&#8230; whichever best suits </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">your needs:</span>
+  <span class="xr_tl xr_s3" style="left: 14.17px; top: 38.89px;font-family:Times New Roman;"><span class="xr_s9" style="">&#8226;</span></span>
+  <span class="xr_tl xr_s9" style="left: 37.79px; top: 38.89px;font-family:Times New Roman;"><span class="xr_s3" style="">&#8220;Never generate multiple spritesheets.&#8221; ( if you use this option, be sure you set the texture atlas </span></span>
+  <span class="xr_tl xr_s3" style="left: 37.79px; top: 56.61px;">maximum size large enough to fit all the images your project uses.)</span>
+  <span class="xr_tl xr_s9" style="left: 14.17px; top: 74.33px;font-family:Times New Roman;"><span class="xr_s9" style="">&#8226;</span></span>
+  <span class="xr_tl xr_s9" style="left: 37.79px; top: 74.33px;font-family:Times New Roman;"><span class="xr_s3" style="">&#8220;Generate multiple sritesheets when images don&#8217;t fit maximum.&#8221; ( This option lets Spriter create as </span></span>
+  <span class="xr_tl xr_s3" style="left: 37.79px; top: 92.05px;">many texture atlases as needed to fit all the images.</span>
+  <span class="xr_tl xr_s9" style="left: 14.17px; top: 109.76px;font-family:Times New Roman;"><span class="xr_s9" style="">&#8226;</span></span>
+  <span class="xr_tl xr_s9" style="left: 37.79px; top: 109.76px;font-family:Times New Roman;"><span class="xr_s3" style="">&#8220;Generate spritesheets for each main folder.&#8221; (this option will make a texture atlas for each image </span></span>
+  <span class="xr_tl xr_s3" style="left: 37.79px; top: 127.48px;">folder in the main folder. Any images sub folders of those folders will be included in the single </span>
+  <span class="xr_tl xr_s3" style="left: 37.79px; top: 145.2px;">texture atlas for each main folder in the project.)</span>
+  <span class="xr_tl xr_s9" style="left: 14.17px; top: 162.92px;font-family:Times New Roman;"><span class="xr_s9" style="">&#8226;</span></span>
+  <span class="xr_tl xr_s9" style="left: 37.79px; top: 162.92px;font-family:Times New Roman;"><span class="xr_s3" style="">&#8220;Generate spritesheets for each main folder and as needed to fit.&#8221; (this option covers all your bases, </span></span>
+  <span class="xr_tl xr_s3" style="left: 37.79px; top: 180.63px;">starting with an atlas per folder, but also making additional atlases per folder if required to fit all the </span>
+  <span class="xr_tl xr_s3" style="left: 37.79px; top: 198.35px;">images for each folder into the initial atlas for that folder.)</span>
+  <span class="xr_tl xr_s3" style="left: 37.79px; top: 233.79px;">&nbsp; </span>
+ </div>
+ <div class="xr_s3" style="position: absolute; left:36px; top:2442px; width:679px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;">5) Set the maximum size for any texture atlas image. The default is 1024, but you can set this to suit your </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">needs, HOWEVER, make sure this maximum size, coupled with the setting you chose in step 4 allow for </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">all images to fit into the texture atlas(es).&nbsp; An easy way to tell is the OK button at the bottom-right of the </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">&#8220;pack images&#8221; dialogue. It will be greyed out and not clickable if your settings can not accommodate all </span>
+  <span class="xr_tl xr_s3" style="top: 56.61px;">of your projects images. </span>
+ </div>
+ <div class="xr_s3" style="position: absolute; left:36px; top:2761px; width:679px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;">6) If you&#8217;re dealing with an especially large project it might be possible that Spriter might take some time </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">to find the most optimized texture atlases (though in our testing even large projects per packed in a matter </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">of seconds).&nbsp; If&nbsp; for some reason the default &#8220;heuristics&#8221; setting is taking too long, you can use the&nbsp; drop </span>
+  <span class="xr_tl xr_s3" style="top: 38.89px;">down list in the &#8220;heuristic rules&#8221; setting to pick an option that might be slightly less optimized, but will </span>
+  <span class="xr_tl xr_s3" style="top: 56.61px;">process faster.</span>
+ </div>
+ <div class="xr_s3" style="position: absolute; left:36px; top:3083px; width:679px; height:10px;">
+  <span class="xr_tl xr_s3" style="top: -14.26px;">7) Once all settings are to your liking, just click the &#8220;OK&#8221; button near the bottom-right of the &#8220;pack </span>
+  <span class="xr_tl xr_s3" style="top: 3.46px;">images&#8221;dialogue and your texture atlases (and Spriter file which uses them) will be created in the target </span>
+  <span class="xr_tl xr_s3" style="top: 21.18px;">folder you had selected!</span>
+ </div>
+ <img class="xr_ap" src="index_htm_files/553.jpg" alt="" title="" style="left: 391px; top: 881px; width: 324px; height: 282px;"/>
+ <img class="xr_ap" src="index_htm_files/554.jpg" alt="" title="" style="left: 49px; top: 1282px; width: 653px; height: 320px;"/>
+ <img class="xr_ap" src="index_htm_files/555.jpg" alt="" title="" style="left: 126px; top: 1713px; width: 500px; height: 250px;"/>
+ <img class="xr_ap" src="index_htm_files/556.jpg" alt="" title="" style="left: 126px; top: 2224px; width: 500px; height: 184px;"/>
+ <img class="xr_ap" src="index_htm_files/557.jpg" alt="" title="" style="left: 126px; top: 2538px; width: 500px; height: 192px;"/>
+ <img class="xr_ap" src="index_htm_files/558.jpg" alt="" title="" style="left: 126px; top: 2853px; width: 500px; height: 198px;"/>
+ <img class="xr_ap" src="index_htm_files/559.jpg" alt="" title="" style="left: 150px; top: 3163px; width: 421px; height: 268px;"/>
+ <img class="xr_ap" src="index_htm_files/560.jpg" alt="" title="" style="left: 411px; top: 175px; width: 304px; height: 348px;"/>
+ <div class="Normal_text" style="position: absolute; left:108px; top:87px; width:38px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="index.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Index</a></span>
+ </div>
+ <div class="Normal_text" style="position: absolute; left:174px; top:87px; width:77px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="getting%20started.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Quick-start</a></span>
+ </div>
+ <div class="Normal_text" style="position: absolute; left:271px; top:87px; width:103px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="placing%20a%20sprite.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Adding Sprites</a></span>
+ </div>
+ <div class="Normal_text" style="position: absolute; left:403px; top:87px; width:44px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="creating%20and%20assigning%20bones.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Bones</a></span>
+ </div>
+ <div class="Normal_text" style="position: absolute; left:472px; top:87px; width:70px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="animating%20sprites%20and%20bones.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Animating</a></span>
+ </div>
+ <div class="Normal_text" style="position: absolute; left:570px; top:87px; width:112px; height:10px;font-size:16px;color:#FFFFFF;">
+  <span class="xr_tl Normal_text" style="top: -14.48px;font-size:16px;color:#FFFFFF;"><a href="what%20are%20character%20maps.htm" onclick="return(xr_nn());" onmousemove="xr_mo(this,0)" >Character Maps</a></span>
+ </div>
+ <div id="xr_xo0" class="xr_ap" style="left:0; top:0; width:760px; height:100px; visibility:hidden; z-index:3;">
+ <a href="" onclick="return(false);" onmousedown="xr_ppir(this);">
+ </a>
+ </div>
+ <a href="creating%20custom%20trimming%20settings%20for%20each%20animation.htm" onclick="return(xr_nn());">
+  <img class="xr_ap" src="index_htm_files/200.png" alt="" title="" onmousemove="xr_mo(this,0,event)" style="left: 710px; top: 103px; width: 34px; height: 34px;"/>
+ </a>
+ <div id="xr_xd0"></div>
+</div>
+</div>
+</div>
+<!--[if lt IE 7]><script type="text/javascript" src="index_htm_files/png.js"></script><![endif]-->
+<!--[if IE]><script type="text/javascript">xr_aeh()</script><![endif]--><!--[if !IE]>--><script type="text/javascript">xr_htm();repMobFonts();window.addEventListener('load', xr_aeh, false);</script><!--<![endif]-->
+</body>
+</html>
