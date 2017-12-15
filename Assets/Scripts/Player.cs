@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     private bool isGrounded = false;
+    [SerializeField]
+    private GameObject brutus;
     public LayerMask playerMask;
     public float walkSpeed;
     public float jumpHeight;
@@ -273,8 +275,11 @@ public class Player : MonoBehaviour
 	{
 		if (dead == true)
 		{
-			this.GetComponentInChildren<SpriteRenderer>().flipY = true;
-		}
+            //this.GetComponentInChildren<SpriteRenderer>().flipY = true;
+            Vector3 scale = brutus.transform.localScale;
+            scale.y = -0.12f;
+            brutus.transform.localScale = scale;
+        }
 		if (invulnerable == true)
 		{
             this.GetComponentInChildren<SpriteRenderer>().color = Color.grey;
@@ -293,12 +298,18 @@ public class Player : MonoBehaviour
 		}
 		if (this.moveDirection == Direction.Left)
 		{
-			this.GetComponentInChildren<SpriteRenderer>().flipX = false;
-		}
+            Vector3 scale = brutus.transform.localScale;
+            scale.x = -0.12f;
+            brutus.transform.localScale = scale;
+            //this.GetComponentInChildren<SpriteRenderer>().flipX = false;
+        }
 		else if (this.moveDirection == Direction.Right)
 		{
-			this.GetComponentInChildren<SpriteRenderer>().flipX = true;
-		}
+            Vector3 scale = brutus.transform.localScale;
+            scale.x = 0.12f;
+            brutus.transform.localScale = scale;
+            //this.GetComponentInChildren<SpriteRenderer>().flipX = true;
+        }
         if (Mathf.Abs(speed) > 0)
         {
             this.GetComponentInChildren<Animator>().SetFloat("speed", 1);

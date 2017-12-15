@@ -10773,7 +10773,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4723437969934392, guid: 6c3a3c2cde4c9f145a6a73c420023d33, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.28
       objectReference: {fileID: 0}
     - target: {fileID: 4723437969934392, guid: 6c3a3c2cde4c9f145a6a73c420023d33, type: 2}
       propertyPath: m_LocalPosition.z
@@ -10798,6 +10798,18 @@ Prefab:
     - target: {fileID: 4723437969934392, guid: 6c3a3c2cde4c9f145a6a73c420023d33, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723437969934392, guid: 6c3a3c2cde4c9f145a6a73c420023d33, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723437969934392, guid: 6c3a3c2cde4c9f145a6a73c420023d33, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723437969934392, guid: 6c3a3c2cde4c9f145a6a73c420023d33, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c3a3c2cde4c9f145a6a73c420023d33, type: 2}
@@ -14279,6 +14291,11 @@ Prefab:
       propertyPath: m_Offset.x
       value: 0.075
       objectReference: {fileID: 0}
+    - target: {fileID: 114009636181917514, guid: 292362dd8dd85dc43b225e75d0ec71a2,
+        type: 2}
+      propertyPath: brutus
+      value: 
+      objectReference: {fileID: 1591876100}
     m_RemovedComponents:
     - {fileID: 212724164257469474, guid: 292362dd8dd85dc43b225e75d0ec71a2, type: 2}
     - {fileID: 95355287353363166, guid: 292362dd8dd85dc43b225e75d0ec71a2, type: 2}
@@ -33454,6 +33471,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4054767836880694, guid: 253def80d7bbe12469840b4dd09314e8,
     type: 2}
   m_PrefabInternal: {fileID: 1902377708}
+--- !u!1 &1591876100 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1782082468824870, guid: 6c3a3c2cde4c9f145a6a73c420023d33,
+    type: 2}
+  m_PrefabInternal: {fileID: 554274576}
 --- !u!1001 &1593637086
 Prefab:
   m_ObjectHideFlags: 0
