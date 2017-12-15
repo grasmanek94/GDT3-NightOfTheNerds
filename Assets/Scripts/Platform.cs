@@ -11,58 +11,98 @@ public class Platform : MonoBehaviour {
     public float range;
     public float speed;
     public Mode mode;
-    private Direction direction;
+    public Direction direction;
+    private Direction currentDirection;
 
     public enum Mode { Horizontal, Vertical }
     public enum Direction { Forward, Backward }
 
-	void Start () {
+    void Start()
+    {
         startPosX = this.transform.position.x;
         startPosY = this.transform.position.y;
-        if (mode == Mode.Horizontal)
+        if (this.direction == Direction.Forward)
         {
-            endPosX = this.transform.position.x + range;
-            endPosY = this.transform.position.y;
+            if (mode == Mode.Horizontal)
+            {
+                endPosX = this.transform.position.x + range;
+                endPosY = this.transform.position.y;
+            }
+            else if (mode == Mode.Vertical)
+            {
+                endPosY = this.transform.position.y + range;
+                endPosX = this.transform.position.x;
+            }
         }
-        else if (mode == Mode.Vertical)
+        else if (this.direction == Direction.Backward)
         {
-            endPosY = this.transform.position.y + range;
-            endPosX = this.transform.position.x;
+            if (mode == Mode.Horizontal)
+            {
+                endPosX = this.transform.position.x - range;
+                endPosY = this.transform.position.y;
+            }
+            else if (mode == Mode.Vertical)
+            {
+                endPosY = this.transform.position.y - range;
+                endPosX = this.transform.position.x;
+            }
         }
-	}
-	
+    }
+
 	void FixedUpdate () {
-        if (this.transform.position.x > endPosX)
+        if (this.direction == Direction.Forward)
         {
-            direction = Direction.Backward;
+            if (this.transform.position.x > endPosX)
+            {
+                currentDirection = Direction.Backward;
+            }
+            else if (this.transform.position.x < startPosX)
+            {
+                currentDirection = Direction.Forward;
+            }
+            if (this.transform.position.y > endPosY)
+            {
+                currentDirection = Direction.Backward;
+            }
+            else if (this.transform.position.y < startPosY)
+            {
+                currentDirection = Direction.Forward;
+            }
         }
-        else if (this.transform.position.x < startPosX)
+        else if (this.direction == Direction.Backward)
         {
-            direction = Direction.Forward;
-        }
-        if (this.transform.position.y > endPosY)
-        {
-            direction = Direction.Backward;
-        }
-        else if (this.transform.position.y < startPosY)
-        {
-            direction = Direction.Forward;
+            if (this.transform.position.x < endPosX)
+            {
+                currentDirection = Direction.Forward;
+            }
+            else if (this.transform.position.x > startPosX)
+            {
+                currentDirection = Direction.Backward;
+            }
+            if (this.transform.position.y < endPosY)
+            {
+                currentDirection = Direction.Forward;
+            }
+            else if (this.transform.position.y > startPosY)
+            {
+                currentDirection = Direction.Backward;
+            }
         }
 
 
-        if (direction == Direction.Forward && mode == Mode.Horizontal)
+        if (currentDirection == Direction.Forward && mode == Mode.Horizontal)
         {
             this.transform.position += this.transform.right * speed * Time.deltaTime;
         }
-        else if (direction == Direction.Backward && mode == Mode.Horizontal)
+        else if (currentDirection == Direction.Backward && mode == Mode.Horizontal)
         {
             this.transform.position += this.transform.right * -speed * Time.deltaTime;
         }
-        else if (direction == Direction.Forward && mode == Mode.Vertical)
+        else if (currentDirection == Direction.Forward && mode == Mode.Vertical)
         {
             this.transform.position += this.transform.up * speed * Time.deltaTime;
         }
-        else if (direction == Direction.Backward && mode == Mode.Vertical)
+        else if (currentDirection == Direction.Backward && mode == Mode.Vertical)
         {
             this.transform.position += this.transform.up * -speed * Time.deltaTime;
         }
