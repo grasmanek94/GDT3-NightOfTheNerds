@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
 
         isGrounded = Physics2D.Linecast(this.transform.position, new Vector2(this.transform.position.x, this.transform.position.y - 0.35f), playerMask);        
 
-        if (this.dead == false)
+        if (!dead)
         {
 			if (gamemanager != null)
 			{
@@ -143,12 +143,6 @@ public class Player : MonoBehaviour
 				}
 			}
 
-        }
-        else if (dead == true)
-        {
-            this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            this.GetComponent<Rigidbody2D>().isKinematic = true;
-            this.GetComponent<CapsuleCollider2D>().enabled = false;
         }
 
         speed = (transform.position.x - lastPosition.x);
@@ -251,8 +245,8 @@ public class Player : MonoBehaviour
 	{
 		if (dead == true)
 		{
-			this.GetComponent<SpriteRenderer>().flipY = true;
-		}
+            this.GetComponent<Animator>().SetBool("isDead", true);
+        }
 		if (invulnerable == true)
 		{
             this.GetComponent<SpriteRenderer>().color = Color.grey;
@@ -317,6 +311,7 @@ public class Player : MonoBehaviour
 			else if (type == Player.PlayerType.Shooter)
 			{
 				this.GetComponents<AudioSource>()[2].Play();
+                type = PlayerType.Normal;
 				dead = true;
 			}
         }
