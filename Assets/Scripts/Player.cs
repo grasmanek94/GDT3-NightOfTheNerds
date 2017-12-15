@@ -44,7 +44,6 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(lasers);
         invulnerableTime -= Time.deltaTime;
         if (invulnerableTime < 0)
         {
@@ -273,8 +272,8 @@ public class Player : MonoBehaviour
 	{
 		if (dead == true)
 		{
-			this.GetComponent<SpriteRenderer>().flipY = true;
-		}
+            this.GetComponent<Animator>().SetBool("isDead", true);
+        }
 		if (invulnerable == true)
 		{
             this.GetComponent<SpriteRenderer>().color = Color.grey;
@@ -339,6 +338,7 @@ public class Player : MonoBehaviour
 			else if (type == Player.PlayerType.Shooter)
 			{
 				this.GetComponents<AudioSource>()[2].Play();
+                type = PlayerType.Normal;
 				dead = true;
 			}
         }
