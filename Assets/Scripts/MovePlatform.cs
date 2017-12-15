@@ -6,8 +6,9 @@ public class MovePlatform : MonoBehaviour {
 
 	public bool horizontal;
 	public float speed;
-	public float startPositionX, endPositionX, startPositionY, endPositionY;
-	
+	public float startPositionX, startPositionY;
+    private float endPositionX, endPositionY;
+    public float moveRange;
 	private Player player;
     private readonly float width = 1.28f;
     private readonly float height = 0.16f;
@@ -16,7 +17,10 @@ public class MovePlatform : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        startPositionX = transform.position.x;
+        startPositionY = transform.position.y;
+        endPositionX = transform.position.x + moveRange;
+        endPositionY = transform.position.y + moveRange;
 	}
 	
 	// Update is called once per frame

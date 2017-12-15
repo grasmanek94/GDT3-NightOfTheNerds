@@ -158,12 +158,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2962abdc975e04ea393d6ca85f2c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontal: 1
+  horizontal: 0
   speed: 1
   startPositionX: 0.64
   endPositionX: 3.2
   startPositionY: 0
   endPositionY: 0
+  moveRange: 3
 --- !u!212 &212396399317405240
 SpriteRenderer:
   m_ObjectHideFlags: 1
