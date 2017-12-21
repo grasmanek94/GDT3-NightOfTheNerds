@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     private float speed;
 	public float bulletSpeed;
 	public BulletType bulletType;
+    private bool isMoving;
 
 	public enum BulletType { SingleLaser, DualLaser, TrippleLaser };
 	public enum PlayerType { Normal, Upgraded, Shooter };
@@ -45,8 +46,7 @@ public class Player : MonoBehaviour
         // Getting the checkpointmanager attached to the player
         chkManager = GetComponent<CheckPointManager>();
         // Setting the start checkpoint where the player spawns
-        Vector3 pos = chkManager.startCheckPoint.transform.position + Vector3.back;
-        transform.position = pos;
+        Respawn();
 	}
 
     void FixedUpdate()
@@ -89,7 +89,15 @@ public class Player : MonoBehaviour
 						fired = true;
 					}
 				}
-			}
+                if (Input.GetKey("left") || Input.GetKey("right"))
+                {
+                    isMoving = true;
+                }
+                else
+                {
+                    isMoving = false;
+                }
+            }
 			else
 			{
 				if (Input.GetKey("left"))
@@ -118,6 +126,14 @@ public class Player : MonoBehaviour
 						fired = true;
 					}
 				}
+                if (Input.GetKey("left") || Input.GetKey("right"))
+                {
+                    isMoving = true;
+                }
+                else
+                {
+                    isMoving = false;
+                }
 			}
 			if (gamemanager != null)
 			{
@@ -152,8 +168,16 @@ public class Player : MonoBehaviour
 
         }
 
-        speed = (transform.position.x - lastPosition.x);
-        lastPosition = transform.position;
+        if (isMoving) 
+        {
+            speed = (transform.position.x - lastPosition.x);
+            lastPosition = transform.position;
+        }
+        else
+        {
+            speed = 0;
+        }
+
 
         ChangeSprite();
     }
@@ -346,8 +370,13 @@ public class Player : MonoBehaviour
     /// </summary>
     public void Respawn()
     {
+		Vector3 pos;
         // Setting the current checkpoint where the player should respawn
-        Vector3 pos = chkManager.currentCheckPoint.transform.position + Vector3.back;
+        if (chkManager.currentCheckPoint == null) {
+			pos = chkManager.startCheckPoint;
+		} else {
+			pos = chkManager.currentCheckPoint.transform.position + Vector3.back;
+		}
         transform.position = pos;
     }
 }
