@@ -16,7 +16,7 @@ public class SimpleTouchController : MonoBehaviour {
 	[SerializeField]
 	private RectTransform joystickArea;
 	private bool touchPresent = false;
-	private Vector2 movementVector;
+	public Vector2 movementVector;
 
 
 	public Vector2 GetTouchPosition
