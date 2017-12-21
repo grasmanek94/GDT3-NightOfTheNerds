@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Goomba : MonoBehaviour
 {
+    [SerializeField]
+    AudioSource[] audio_sources;
     private float startPosX;
     private float startPosY;
     private float endPosX;
@@ -147,5 +149,15 @@ public class Goomba : MonoBehaviour
             }
             this.GetComponent<BoxCollider2D>().enabled = true;
         }
+    }
+
+    public void playDeadSound()
+    {
+        int index = Random.Range(1, audio_sources.Length);
+        AudioSource source = audio_sources[index];
+        AudioSource zero = audio_sources[0];
+        audio_sources[0] = source;
+        audio_sources[index] = zero;
+        source.Play();
     }
 }
