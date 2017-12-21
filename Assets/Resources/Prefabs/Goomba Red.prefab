@@ -21,9 +21,6 @@ GameObject:
   - component: {fileID: 4594759324035498}
   - component: {fileID: 61994483796404662}
   - component: {fileID: 114811560879721422}
-  - component: {fileID: 82936649195882604}
-  - component: {fileID: 82206972844284388}
-  - component: {fileID: 82138596216219524}
   m_Layer: 0
   m_Name: TopTrigger
   m_TagString: Untagged
@@ -79,6 +76,9 @@ GameObject:
   - component: {fileID: 114244677710681326}
   - component: {fileID: 61466315609679758}
   - component: {fileID: 95833401930633628}
+  - component: {fileID: 82974265712912350}
+  - component: {fileID: 82359010980601708}
+  - component: {fileID: 82314107905154750}
   m_Layer: 0
   m_Name: Goomba Red
   m_TagString: Enemy
@@ -93,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1972756499483730}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.743, y: -1.512, z: 0}
+  m_LocalPosition: {x: 2.5978243, y: -1.4205354, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4991975231793880}
@@ -276,12 +276,12 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.64, y: 0.64}
   m_Direction: 0
---- !u!82 &82138596216219524
+--- !u!82 &82314107905154750
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1179037680623972}
+  m_GameObject: {fileID: 1972756499483730}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -356,12 +356,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!82 &82206972844284388
+--- !u!82 &82359010980601708
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1179037680623972}
+  m_GameObject: {fileID: 1972756499483730}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -436,12 +436,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!82 &82936649195882604
+--- !u!82 &82974265712912350
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1179037680623972}
+  m_GameObject: {fileID: 1972756499483730}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -544,6 +544,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c20fc5908a6c8439b2349635933a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio_sources:
+  - {fileID: 82974265712912350}
+  - {fileID: 82359010980601708}
+  - {fileID: 82314107905154750}
   range: 0
   mode: 0
   direction: 0
@@ -573,10 +577,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fe3b0ef44a6ee448778ea8c46a890d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio_sources:
-  - {fileID: 82936649195882604}
-  - {fileID: 82206972844284388}
-  - {fileID: 82138596216219524}
 --- !u!114 &114911022185098822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -624,7 +624,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b52a22af682b6634d90fd386c7b12263, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.96, y: 0.92}
