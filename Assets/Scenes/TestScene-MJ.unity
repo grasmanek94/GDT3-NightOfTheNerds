@@ -1827,7 +1827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55702a1816ac2ba4c96cf8094c7bf83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startCheckPoint: {x: 0, y: 0, z: 0}
+  startCheckPoint: {x: 2, y: 0, z: 0}
   currentCheckPoint: {fileID: 0}
 --- !u!1001 &767302838
 Prefab:
