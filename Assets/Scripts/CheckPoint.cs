@@ -40,8 +40,8 @@ public class CheckPoint : MonoBehaviour {
                 active = true;
 
                 // Notify the checkpoint manager about the collision of this checkpoint so previous ones can be disabled
-                CheckPointManager chkManager = collider.gameObject.GetComponent<CheckPointManager>();
-                chkManager.OnCheckPointTriggered(this);
+                Player player = (Player)collider.gameObject.GetComponent("Player");
+                player.gamemanager.OnCheckPointTriggered(this);
             }
         }
     }

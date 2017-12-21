@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CheckPointManager : MonoBehaviour {
 
-    private List<CheckPoint> checkPoints; // All checkpoints you've passed. Should always start with startcheckpoint
-    public Vector3 startCheckPoint; // Required
-    public CheckPoint currentCheckPoint; // Starts as startCheckPoint, after it changes
+    private List<CheckPoint> checkPoints; 
+    public Vector3 startCheckPoint; 
+    public CheckPoint currentCheckPoint; 
 	
 	void Awake() {
         checkPoints = new List<CheckPoint>();

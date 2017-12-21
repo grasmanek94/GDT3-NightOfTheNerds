@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public GameManager gamemanager;
     private bool jumped;
 	private bool fired;
-    private Vector3 lastPosition;
+    private Vector3 lastPosition, lastGroundedPosition;
     private float speed;
 	public float bulletSpeed;
 	public BulletType bulletType;
@@ -30,8 +30,6 @@ public class Player : MonoBehaviour
     private GameObject upgradeParticles;
     private int lasers = 0;
 
-    private CheckPointManager chkManager;
-
     private void Start()
     {
 		try
@@ -42,11 +40,6 @@ public class Player : MonoBehaviour
 		{
 			gamemanager = null;
 		}
-
-        // Getting the checkpointmanager attached to the player
-        chkManager = GetComponent<CheckPointManager>();
-        // Setting the start checkpoint where the player spawns
-        Respawn();
 	}
 
     void FixedUpdate()
@@ -137,7 +130,6 @@ public class Player : MonoBehaviour
 			}
 			if (gamemanager != null)
 			{
-
 				if (Input.GetKey("up") == false && gamemanager.jump == false)
 				{
 					jumped = false;
@@ -152,7 +144,6 @@ public class Player : MonoBehaviour
 			}
 			if (gamemanager != null)
 			{
-
 				if (Input.GetKey(KeyCode.LeftControl) == false && gamemanager.shoot == false)
 				{
 					fired = false;
@@ -165,7 +156,6 @@ public class Player : MonoBehaviour
 					fired = false;
 				}
 			}
-
         }
 
         if (isMoving) 
@@ -178,6 +168,16 @@ public class Player : MonoBehaviour
             speed = 0;
         }
 
+        if (isGrounded)
+        {
+            lastGroundedPosition = transform.position;
+        }
+
+        if (lastGroundedPosition.y - 20f >= transform.position.y)
+        {
+            Debug.Log("Falling to dead ");
+            StartCoroutine(Death());
+        }
 
         ChangeSprite();
     }
@@ -346,7 +346,6 @@ public class Player : MonoBehaviour
 			{
 				this.GetComponents<AudioSource>()[2].Play();
                 type = PlayerType.Normal;
-
                 StartCoroutine(Death());
 			}
         }
@@ -385,13 +384,9 @@ public class Player : MonoBehaviour
     /// </summary>
     public void Respawn()
     {
-		Vector3 pos;
         // Setting the current checkpoint where the player should respawn
-        if (chkManager.currentCheckPoint == null) {
-			pos = chkManager.startCheckPoint;
-		} else {
-			pos = chkManager.currentCheckPoint.transform.position + Vector3.back;
-		}
-        transform.position = pos;
+        if (gamemanager != null) {
+            gamemanager.Restart();
+        }
     }
 }
