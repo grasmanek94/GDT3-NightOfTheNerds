@@ -8,26 +8,31 @@ public class UIControl : MonoBehaviour
 {
     public GameObject MainMenu;
     public GameObject LevelSelector;
-    public GameObject playLevelBtn;
+    public GameObject EllieSelector;
+    public GameObject PlayLevelBtn;
+    public GameObject EllieContinueBtn;
     public Image Level1IMG;
     public Image Level2IMG;
     public Image SelectedLevel;
     public Text Level1txt;
     public Text Level2txt;
     public Text SelectedLevelText;
+    public Text RouteSelectInstructionText;
     private string SceneName;
 
 	void Start()
     {
         MainMenu.SetActive(true);
         LevelSelector.SetActive(false);
-        Level1IMG.color = new Color(255, 255, 255, 50);
-        Level1IMG.GetComponent<Button>().interactable = false;
-        Level1txt.text = "locked";
+        EllieSelector.SetActive(false);
+        //Level1IMG.color = new Color(255, 255, 255, 50);
+        //Level1IMG.GetComponent<Button>().interactable = false;
+        //Level1txt.text = "locked";
         Level2IMG.color = new Color(255, 255, 255, 50);
         Level2IMG.GetComponent<Button>().interactable = false;
         Level2txt.text = "locked";
-        playLevelBtn.SetActive(false);
+        PlayLevelBtn.SetActive(false);
+        EllieContinueBtn.SetActive(false);
 	}
 	
 	void Update()
@@ -44,7 +49,7 @@ public class UIControl : MonoBehaviour
     public void ev_StartGameBtn()
     {
         MainMenu.SetActive(false);
-        LevelSelector.SetActive(true);
+        EllieSelector.SetActive(true);
     }
 
     public void ev_ReturnToMainBtn()
@@ -61,11 +66,26 @@ public class UIControl : MonoBehaviour
         }     
     }
 
+    public void ev_EllieContinueBtn(Text Routename)
+    {
+        if (Routename.text != "Select Route")
+        {
+            EllieSelector.SetActive(false);
+            LevelSelector.SetActive(true);
+        }
+    }
+
+    public void ev_routeSelected()
+    {
+        EllieContinueBtn.SetActive(true);
+        RouteSelectInstructionText.text = "";
+    }
+    
     public void SelectLevel(Image level)
     {
         SelectedLevel.color = Color.white;
         SelectedLevel.sprite = level.sprite;
-        playLevelBtn.SetActive(true);
+        PlayLevelBtn.SetActive(true);
         SceneName = level.GetComponentInChildren<Text>().text;
     }
 

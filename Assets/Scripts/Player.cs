@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public PlayerType type;
     public GameManager gamemanager;
     private bool jumped;
-	private bool fired;
+	public bool fired;
     private Vector3 lastPosition;
     private float speed;
 	public float bulletSpeed;
