@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -327,7 +328,7 @@ public class Player : MonoBehaviour
 
     public void Hit()
     {
-        if (invulnerable == false)
+		if (invulnerable == false && dead == false)
         {
             if (type == Player.PlayerType.Normal)
             {
@@ -378,15 +379,15 @@ public class Player : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// This method respawns the player by communicating with the checkpointmanager.
-    /// The checkpointmanager has information about the starting checkpoint and the currentcheckpoint.
-    /// </summary>
     public void Respawn()
     {
-        // Setting the current checkpoint where the player should respawn
-        if (gamemanager != null) {
-            gamemanager.Restart();
-        }
+		if (gamemanager != null) {
+			gamemanager.Restart ();
+		}
+		else
+		{
+			SceneManager.LoadScene("Demo Level");
+		}
+
     }
 }
