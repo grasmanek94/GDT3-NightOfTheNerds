@@ -516,7 +516,7 @@ MonoBehaviour:
   isGrounded: 0
   playerMask:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 4294966527
   walkSpeed: 0.5
   jumpHeight: 6
   dead: 0
@@ -524,7 +524,7 @@ MonoBehaviour:
   moveDirection: 1
   type: 0
   gamemanager: {fileID: 0}
-  bulletSpeed: 5
+  bulletSpeed: 10
   bulletType: 0
 --- !u!114 &114546927363350106
 MonoBehaviour:
