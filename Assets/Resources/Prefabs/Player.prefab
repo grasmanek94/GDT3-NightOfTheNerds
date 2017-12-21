@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 82519008501017604}
   - component: {fileID: 82623574782768288}
   - component: {fileID: 82412412433221180}
+  - component: {fileID: 114546927363350106}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -43,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1084328841537804}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.96, y: 0.32, z: 0}
+  m_LocalPosition: {x: -0.32, y: -1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,7 +83,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.6, y: 0.6}
+  m_Size: {x: 0.3, y: 0.6}
   m_Direction: 0
 --- !u!82 &82020326445747336
 AudioSource:
@@ -515,7 +516,7 @@ MonoBehaviour:
   isGrounded: 0
   playerMask:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 4294966527
   walkSpeed: 0.5
   jumpHeight: 6
   dead: 0
@@ -523,8 +524,23 @@ MonoBehaviour:
   moveDirection: 1
   type: 0
   gamemanager: {fileID: 0}
-  bulletSpeed: 5
+  jumped: 0
+  fired: 0
+  bulletSpeed: 10
   bulletType: 0
+--- !u!114 &114546927363350106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1084328841537804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55702a1816ac2ba4c96cf8094c7bf83b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startCheckPoint: {x: 0, y: 0, z: 0}
+  currentCheckPoint: {fileID: 0}
 --- !u!212 &212724164257469474
 SpriteRenderer:
   m_ObjectHideFlags: 1
