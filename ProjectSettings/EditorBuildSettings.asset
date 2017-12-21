@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 4e964b541a966a345b25f880619bf97e
   - enabled: 0
-    path: Assets/Scenes/Level-QRUnlock.unity
+    path: 
     guid: 01cff02640d32b94da60ed0d18a510a3
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
@@ -20,3 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 5fae52b1f7739294787e25e5814cb642
+  - enabled: 1
+    path: Assets/Scenes/Demo Level.unity
+    guid: 7eab9ea75067c5047b4f46a1e25c352f

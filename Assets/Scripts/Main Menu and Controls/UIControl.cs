@@ -25,12 +25,12 @@ public class UIControl : MonoBehaviour
         MainMenu.SetActive(true);
         LevelSelector.SetActive(false);
         EllieSelector.SetActive(false);
-        //Level1IMG.color = new Color(255, 255, 255, 50);
-        //Level1IMG.GetComponent<Button>().interactable = false;
-        //Level1txt.text = "locked";
+        /*Level1IMG.color = new Color(255, 255, 255, 50);
+        Level1IMG.GetComponent<Button>().interactable = false;
+        Level1txt.text = "locked";
         Level2IMG.color = new Color(255, 255, 255, 50);
         Level2IMG.GetComponent<Button>().interactable = false;
-        Level2txt.text = "locked";
+        Level2txt.text = "locked";*/
         PlayLevelBtn.SetActive(false);
         EllieContinueBtn.SetActive(false);
 	}
