@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
 						fired = true;
 					}
 				}
-                if (Input.GetKey("left") || Input.GetKey("right"))
+                if (Input.GetKey("left") || Input.GetKey("right") || gamemanager.left == true || gamemanager.right == true)
                 {
                     isMoving = true;
                 }

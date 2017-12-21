@@ -138,6 +138,7 @@ public class Goomba : MonoBehaviour
         }
         else if (dead == true)
         {
+            this.GetComponent<Animator>().speed = 0;
             this.GetComponent<Rigidbody2D>().gravityScale = 1;
             this.GetComponent<CapsuleCollider2D>().enabled = false;
             foreach (BoxCollider2D collider in this.GetComponentsInChildren<BoxCollider2D>())
