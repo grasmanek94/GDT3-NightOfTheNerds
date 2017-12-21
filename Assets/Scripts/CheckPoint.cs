@@ -25,6 +25,20 @@ public class CheckPoint : MonoBehaviour {
     /// <param name="collider">The object which collides with the checkpoint</param>
     public void OnTriggerEnter2D(Collider2D collider)
     {
+		//temp ------------------------
+		if (collider.tag == "Player")
+		{
+			if (collider.GetComponent<Player> ().gamemanager != null)
+			{
+				collider.GetComponent<Player> ().gamemanager.lastCheckPointPos = this.transform.position;
+			}
+			else
+			{
+				Debug.Log("no gamemanager, start via main menu!");
+			}
+		}
+		///temp------------------------
+
         // check we haven't been triggered yet!
         if (!triggered)
         {
@@ -41,7 +55,8 @@ public class CheckPoint : MonoBehaviour {
 
                 // Notify the checkpoint manager about the collision of this checkpoint so previous ones can be disabled
                 Player player = (Player)collider.gameObject.GetComponent("Player");
-                player.gamemanager.OnCheckPointTriggered(this);
+                //player.gamemanager.OnCheckPointTriggered(this);
+				SetSprite();
             }
         }
     }

@@ -15,7 +15,10 @@ public class GameManager : MonoBehaviour {
     public Button keyboardButton;
     public Button touchButton;
 
-    // Checkpoints
+	//temp---------------------------
+	public Vector2 lastCheckPointPos;
+	///temp--------------------------
+
     private CheckPoint[] allCheckPoints;
     private List<int> checkPoints = new List<int>();
     public Vector3 startCheckPoint;
@@ -28,7 +31,6 @@ public class GameManager : MonoBehaviour {
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("OnSceneLoaded");
         allCheckPoints = FindObjectsOfType<CheckPoint>();
         DisableCheckPoints();
         if (currentCheckPoint >= 0)
@@ -40,13 +42,11 @@ public class GameManager : MonoBehaviour {
 
     void OnEnable()
     {
-        Debug.Log("OnEnable");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnDisable()
     {
-        Debug.Log("OnDisable");
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
@@ -121,12 +121,7 @@ public class GameManager : MonoBehaviour {
 	{
 		shoot = false;
 	}
-
-    /// <summary>
-    /// This method sets the current checkpoint to the new checkpoint.
-    /// Once the currentcheckpoint has changed, all previous triggered checkpoints should be disabled.
-    /// </summary>
-    /// <param name="newCheckPoint"></param>
+		
     public void OnCheckPointTriggered(CheckPoint newCheckPoint)
     {
         if (AddCheckPoint(newCheckPoint))
@@ -135,11 +130,7 @@ public class GameManager : MonoBehaviour {
             DisableCheckPoints();
         }
     }
-
-    /// <summary>
-    /// This method disables all the previously triggered checkpoints, which do not match the given checkpointId. 
-    /// The sprite for each checkpoint should be changed accordingly.
-    /// </summary>
+		
     private void DisableCheckPoints()
     {
         Debug.Log("allCheckPoints: " + allCheckPoints.Length);
@@ -149,13 +140,11 @@ public class GameManager : MonoBehaviour {
             {
                 chk.active = false;
                 chk.triggered = true;
-                Debug.Log("Not current checkpoint.");
             }
             else if (checkPoints.Contains(chk.id) && chk.id == currentCheckPoint)
             {
                 chk.active = true;
                 chk.triggered = true;
-                Debug.Log("Current checkpoint. " + currentCheckPoint);
             }
             chk.SetSprite();
         }
@@ -165,11 +154,9 @@ public class GameManager : MonoBehaviour {
     {
         if (!checkPoints.Contains(newCheckPoint.id))
         {
-            Debug.Log("Id doesn't exist");
             checkPoints.Add(newCheckPoint.id);
             return true;
         }
-        Debug.Log("Id does exist");
         return false;
     }
 

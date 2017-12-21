@@ -18,11 +18,13 @@ public class Player : MonoBehaviour
     public GameManager gamemanager;
     public bool jumped;
 	public bool fired;
-    private Vector3 lastPosition, lastGroundedPosition;
+	private Vector3 lastPosition;
+	private Vector3 lastGroundedPosition;
     private float speed;
 	public float bulletSpeed;
 	public BulletType bulletType;
     private bool isMoving;
+	public CheckPoint lastCheckPoint;
 
 	public enum BulletType { SingleLaser, DualLaser, TrippleLaser };
 	public enum PlayerType { Normal, Upgraded, Shooter };
@@ -36,6 +38,10 @@ public class Player : MonoBehaviour
 		try
 		{
 			gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
+			if (gamemanager.lastCheckPointPos.x != 0 && gamemanager.lastCheckPointPos.y != 0)
+			{
+				this.transform.position = gamemanager.lastCheckPointPos;
+			}
 		}
 		catch
 		{
@@ -356,7 +362,6 @@ public class Player : MonoBehaviour
     {
         dead = true;
         yield return new WaitForSeconds(2);
-        Debug.Log("Respawn");
         dead = false;
         Respawn();
     }
@@ -381,13 +386,10 @@ public class Player : MonoBehaviour
 
     public void Respawn()
     {
-		if (gamemanager != null) {
+		/*if (gamemanager != null) {
 			gamemanager.Restart ();
-		}
-		else
-		{
-			SceneManager.LoadScene("Demo Level");
-		}
+		}*/
 
+		SceneManager.LoadScene("Demo Level");
     }
 }
