@@ -12,13 +12,13 @@ public class GoombaSideTrigger : MonoBehaviour
         }
         else if (other.gameObject.tag == "Level" || other.gameObject.tag == "Enemy" || other.gameObject.tag == "Powerup")
         {
-            if (this.GetComponentInParent<Goomba>().moveDirection == Goomba.Direction.Left)
+            if (this.GetComponentInParent<Goomba>().currentDirection == Goomba.Direction.Backward)
             {
-                this.GetComponentInParent<Goomba>().moveDirection = Goomba.Direction.Right;
+                this.GetComponentInParent<Goomba>().currentDirection = Goomba.Direction.Forward;
             }
-            else if (this.GetComponentInParent<Goomba>().moveDirection == Goomba.Direction.Right)
+            else if (this.GetComponentInParent<Goomba>().currentDirection == Goomba.Direction.Forward)
             {
-                this.GetComponentInParent<Goomba>().moveDirection = Goomba.Direction.Left;
+                this.GetComponentInParent<Goomba>().currentDirection = Goomba.Direction.Backward;
             }
         }
     }
