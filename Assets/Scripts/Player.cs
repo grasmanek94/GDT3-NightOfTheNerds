@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    private bool isGrounded = false;
+    public bool isGrounded = false;
     public LayerMask playerMask;
     public float walkSpeed;
     public float jumpHeight;
@@ -15,8 +15,8 @@ public class Player : MonoBehaviour
     public Direction moveDirection;
     public PlayerType type;
     public GameManager gamemanager;
-    private bool jumped;
-	private bool fired;
+    public bool jumped;
+	public bool fired;
     private Vector3 lastPosition;
     private float speed;
 	public float bulletSpeed;

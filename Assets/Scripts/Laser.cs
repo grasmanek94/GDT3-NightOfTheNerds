@@ -16,7 +16,8 @@ public class Laser : MonoBehaviour {
 		if (other.gameObject.tag == "Enemy")
 		{
 			other.GetComponent<Goomba>().dead = true;
-			other.GetComponent<SpriteRenderer> ().flipY = true;
+            other.GetComponent<Goomba>().playDeadSound();
+            other.GetComponent<SpriteRenderer> ().flipY = true;
 			Destroy (other.GetComponent<Goomba>().gameObject, 1);
 			Destroy(this.gameObject);
 		}

@@ -11,10 +11,6 @@ public class GameManager : MonoBehaviour {
     public bool left;
     public bool right;
 	public bool shoot;
-    public Button jumpButton;
-    public Button leftButton;
-    public Button rightButton;
-	public Button shootButton;
     public Button restartButton;
     public Button keyboardButton;
     public Button touchButton;
@@ -43,10 +39,6 @@ public class GameManager : MonoBehaviour {
         keyboardButton.gameObject.SetActive(false);
         touchButton.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(true);
-        jumpButton.gameObject.SetActive(true);
-        leftButton.gameObject.SetActive(true);
-        rightButton.gameObject.SetActive(true);
-		shootButton.gameObject.SetActive(true);
         level++;
         Restart();
     }
