@@ -40,8 +40,10 @@ public class ControlsManager : MonoBehaviour
 
     public void jump()
     {
-        GetComponentsInChildren<AudioSource>()[3].Play();
-        GetComponentInChildren<Rigidbody2D>().velocity = Vector2.zero;
-        GetComponentInChildren<Rigidbody2D>().AddForce(new Vector2(0, player.jumpHeight), ForceMode2D.Impulse);
+        if (player.isGrounded == true && player.jumped == false)
+        {
+            player.Jump();
+            player.jumped = true;
+        }
     }
 }
