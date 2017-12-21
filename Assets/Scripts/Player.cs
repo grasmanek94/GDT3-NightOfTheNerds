@@ -46,8 +46,7 @@ public class Player : MonoBehaviour
         // Getting the checkpointmanager attached to the player
         chkManager = GetComponent<CheckPointManager>();
         // Setting the start checkpoint where the player spawns
-        Vector3 pos = chkManager.startCheckPoint.transform.position + Vector3.back;
-        transform.position = pos;
+        Respawn();
 	}
 
     void FixedUpdate()
@@ -371,8 +370,13 @@ public class Player : MonoBehaviour
     /// </summary>
     public void Respawn()
     {
+		Vector3 pos;
         // Setting the current checkpoint where the player should respawn
-        Vector3 pos = chkManager.currentCheckPoint.transform.position + Vector3.back;
+        if (chkManager.currentCheckPoint == null) {
+			pos = chkManager.startCheckPoint;
+		} else {
+			pos = chkManager.currentCheckPoint.transform.position + Vector3.back;
+		}
         transform.position = pos;
     }
 }
