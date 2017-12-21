@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteFull: {fileID: 21300064, guid: 51c1c4da93c7bab4994e1c399556050d, type: 3}
-  spriteEmpty: {fileID: 21300004, guid: 51c1c4da93c7bab4994e1c399556050d, type: 3}
+  spriteEmpty: {fileID: 21300000, guid: 74d0625c68071de4a94357c6a9ea2db0, type: 3}
   state: 0
 --- !u!212 &212217424292204672
 SpriteRenderer:
