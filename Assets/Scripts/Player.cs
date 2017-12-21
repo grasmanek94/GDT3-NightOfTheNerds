@@ -277,6 +277,10 @@ public class Player : MonoBehaviour
 		{
             this.GetComponent<Animator>().SetBool("isDead", true);
         }
+        else
+        {
+            this.GetComponent<Animator>().SetBool("isDead", false);
+        }
 		if (invulnerable == true)
 		{
             this.GetComponent<SpriteRenderer>().color = Color.grey;
@@ -328,7 +332,7 @@ public class Player : MonoBehaviour
             if (type == Player.PlayerType.Normal)
             {
                 this.GetComponents<AudioSource>()[2].Play();
-                dead = true;
+                StartCoroutine(Death());
             }
             else if (type == Player.PlayerType.Upgraded)
             {
@@ -342,10 +346,21 @@ public class Player : MonoBehaviour
 			{
 				this.GetComponents<AudioSource>()[2].Play();
                 type = PlayerType.Normal;
-				dead = true;
+
+                StartCoroutine(Death());
 			}
         }
     }
+
+    private IEnumerator Death()
+    {
+        dead = true;
+        yield return new WaitForSeconds(2);
+        Debug.Log("Respawn");
+        dead = false;
+        Respawn();
+    }
+
     public void Powerup(PlayerType powerupType)
     {
         if (powerupType == PlayerType.Upgraded)
