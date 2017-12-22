@@ -24,8 +24,9 @@ public class Player : MonoBehaviour
 	public float bulletSpeed;
 	public BulletType bulletType;
     public bool isMoving;
+    public float maxSpeed;
 
-	public enum BulletType { SingleLaser, DualLaser, TrippleLaser };
+    public enum BulletType { SingleLaser, DualLaser, TrippleLaser };
 	public enum PlayerType { Normal, Upgraded, Shooter };
 	public enum Direction { Left, Right };
 
@@ -51,6 +52,10 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (this.GetComponent<Rigidbody2D>().velocity.magnitude > maxSpeed)
+        {
+            this.GetComponent<Rigidbody2D>().velocity = this.GetComponent<Rigidbody2D>().velocity.normalized * maxSpeed;
+        }
         invulnerableTime -= Time.deltaTime;
         if (invulnerableTime < 0)
         {
@@ -93,10 +98,6 @@ public class Player : MonoBehaviour
                 {
                     isMoving = true;
                 }
-                else
-                {
-                    //isMoving = false;
-                }
             }
 			else
 			{
@@ -129,10 +130,6 @@ public class Player : MonoBehaviour
                 if (Input.GetKey("left") || Input.GetKey("right"))
                 {
                     isMoving = true;
-                }
-                else
-                {
-                    //isMoving = false;
                 }
 			}
 			if (gamemanager != null)
