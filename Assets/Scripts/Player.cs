@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
 	public BulletType bulletType;
     public bool isMoving;
     public float maxSpeed;
+    public GameObject actionButton;
 
     public enum BulletType { SingleLaser, DualLaser, TrippleLaser };
 	public enum PlayerType { Normal, Upgraded, Shooter };
@@ -40,6 +42,15 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        try
+        {
+            actionButton = GameObject.Find("BtnAction").gameObject;
+            actionButton.SetActive(false);
+        }
+        catch
+        {
+            actionButton = null;
+        }
 		try
 		{
 			gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -376,6 +387,10 @@ public class Player : MonoBehaviour
     {
         if (powerupType == PlayerType.Upgraded)
         {
+            if (actionButton != null)
+            {
+                this.actionButton.SetActive(false);
+            }
             this.GetComponents<AudioSource>()[1].Play();
             type = PlayerType.Upgraded;
             upgradeParticles = (GameObject)Instantiate(Resources.Load("Prefabs/PowerupParticles"));
@@ -383,7 +398,11 @@ public class Player : MonoBehaviour
             upgradeParticles.transform.localPosition = Vector3.zero;
         }
 		else if (powerupType == PlayerType.Shooter)
-		{
+        {
+            if (actionButton != null)
+            {
+                this.actionButton.SetActive(true);
+            }
             this.GetComponents<AudioSource>()[1].Play();
 			type = PlayerType.Shooter;
             Destroy(upgradeParticles);

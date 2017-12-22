@@ -2780,6 +2780,11 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114009636181917514, guid: 292362dd8dd85dc43b225e75d0ec71a2,
+        type: 2}
+      propertyPath: actionButton
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 292362dd8dd85dc43b225e75d0ec71a2, type: 2}
   m_IsPrefabParent: 0
@@ -24162,7 +24167,7 @@ Prefab:
     - target: {fileID: 224040101034711756, guid: d271afacb652d3244ae6ac60115bc922,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -400
+      value: -676.4286
       objectReference: {fileID: 0}
     - target: {fileID: 224040101034711756, guid: d271afacb652d3244ae6ac60115bc922,
         type: 2}
@@ -24244,26 +24249,17 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114249947943394822, guid: d271afacb652d3244ae6ac60115bc922,
-        type: 2}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1235114223}
-    - target: {fileID: 114249947943394822, guid: d271afacb652d3244ae6ac60115bc922,
-        type: 2}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnSubmit
-      objectReference: {fileID: 0}
-    - target: {fileID: 114249947943394822, guid: d271afacb652d3244ae6ac60115bc922,
-        type: 2}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: shoot
-      objectReference: {fileID: 0}
     - target: {fileID: 114791576427986624, guid: d271afacb652d3244ae6ac60115bc922,
         type: 2}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1235114223}
+    - target: {fileID: 114249947943394822, guid: d271afacb652d3244ae6ac60115bc922,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1235114223}
+<<<<<<< HEAD
     - target: {fileID: 114791576427986624, guid: d271afacb652d3244ae6ac60115bc922,
         type: 2}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -24376,6 +24372,8 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.39215687
       objectReference: {fileID: 0}
+=======
+>>>>>>> fba04644ea948057366fac1314dde9e6eb9cfc10
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d271afacb652d3244ae6ac60115bc922, type: 2}
   m_IsPrefabParent: 0
