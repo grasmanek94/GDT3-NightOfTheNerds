@@ -518,7 +518,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294966527
   walkSpeed: 0.5
-  jumpHeight: 6
+  jumpHeight: 6.5
   dead: 0
   invulnerable: 0
   moveDirection: 1
@@ -528,6 +528,7 @@ MonoBehaviour:
   fired: 0
   bulletSpeed: 10
   bulletType: 0
+  isMoving: 0
 --- !u!114 &114546927363350106
 MonoBehaviour:
   m_ObjectHideFlags: 0
