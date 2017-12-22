@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ControlsManager : MonoBehaviour
 {
+    public GameObject playerObject;
     private Player player;
 	void Start()
     {
         Input.multiTouchEnabled = true;
-        player = GetComponentInChildren<Player>();
+        player = playerObject.GetComponent<Player>();
     }
 	
 	void Update()
@@ -20,20 +21,22 @@ public class ControlsManager : MonoBehaviour
     }
 
     public void OnSubmit(string action)
-    {     
-        Debug.Log("submit");
-        if (action == "jump")
+    {   
+        if (!player.dead)
         {
-            jump();
-        }
-
-        else if(action == "shoot")
-        {
-            Debug.Log(player.type);
-            if (player.type == Player.PlayerType.Shooter && player.fired == false)
+            if (action == "jump")
             {
-                player.Shoot();
-                player.fired = true;
+                jump();
+            }
+
+            else if (action == "shoot")
+            {
+                Debug.Log(player.type);
+                if (player.type == Player.PlayerType.Shooter && player.fired == false)
+                {
+                    player.Shoot();
+                    player.fired = true;
+                }
             }
         }
     }

@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     private float speed;
 	public float bulletSpeed;
 	public BulletType bulletType;
-    private bool isMoving;
+    public bool isMoving;
 
 	public enum BulletType { SingleLaser, DualLaser, TrippleLaser };
 	public enum PlayerType { Normal, Upgraded, Shooter };
@@ -31,6 +31,11 @@ public class Player : MonoBehaviour
 
     private GameObject upgradeParticles;
     private int lasers = 0;
+
+    public void SetMoving(bool isMoving)
+    {
+        this.isMoving = isMoving;
+    }
 
     private void Start()
     {
@@ -90,7 +95,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    isMoving = false;
+                    //isMoving = false;
                 }
             }
 			else
@@ -127,7 +132,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    isMoving = false;
+                    //isMoving = false;
                 }
 			}
 			if (gamemanager != null)
@@ -159,16 +164,25 @@ public class Player : MonoBehaviour
 				}
 			}
         }
+        if (gameObject.transform.parent) 
+        {
+            if (gameObject.transform.parent.tag != "MovingPlatform" || isMoving)
+            {
+                speed = (transform.position.x - lastPosition.x);
+                lastPosition = transform.position;
+            }
+            else
+            {
+                speed = 0;
+            }
 
-        if (isMoving) 
+        }
+        else
         {
             speed = (transform.position.x - lastPosition.x);
             lastPosition = transform.position;
         }
-        else
-        {
-            speed = 0;
-        }
+
 
         if (isGrounded)
         {
