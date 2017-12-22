@@ -50,6 +50,8 @@ public class UIControl : MonoBehaviour
 
     private level_info[] Levels;
 
+    private GameManager gamemanager;
+
 	void Start()
     {
         Levels = new level_info[2];
@@ -73,10 +75,20 @@ public class UIControl : MonoBehaviour
         Levels[1] = new level_info("Level 2", Level2IMG, Level2txt, false);*/
         PlayLevelBtn.SetActive(false);
         EllieContinueBtn.SetActive(false);
+
         ScanQRBtn.SetActive(true);
         qr_controller = ScanQRBtn.GetComponent<QRController>();
         qr_controller.enabled = false;
         qr_controller.OnQRCodeScanned += OnQRCodeScanned;
+
+        try
+        {
+            gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        }
+        catch
+        {
+            gamemanager = null;
+        }
     }
 	
 	void Update()
@@ -105,6 +117,7 @@ public class UIControl : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(SceneName))
         {
+            gamemanager.currentCheckPoint = -1;
             SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
         }     
     }
