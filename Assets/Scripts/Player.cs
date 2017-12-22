@@ -63,12 +63,12 @@ public class Player : MonoBehaviour
         {
 			if (gamemanager != null)
 			{
-				if (Input.GetKey("left") || gamemanager.left == true)
+				if (Input.GetKey("left") || gamemanager.left)
 				{
 					this.moveDirection = Direction.Left;
 					this.transform.Translate(new Vector2(-walkSpeed / 10, 0));
 				}
-				if (Input.GetKey("right") || gamemanager.right == true)
+				if (Input.GetKey("right") || gamemanager.right)
 				{
 					this.moveDirection = Direction.Right;
 					this.transform.Translate(new Vector2(walkSpeed / 10, 0));
