@@ -15,10 +15,6 @@ public class GameManager : MonoBehaviour {
     public Button keyboardButton;
     public Button touchButton;
 
-	//temp---------------------------
-	public Vector2 lastCheckPointPos;
-	///temp--------------------------
-
     private CheckPoint[] allCheckPoints;
     private List<int> checkPoints = new List<int>();
     public Vector3 startCheckPoint;
