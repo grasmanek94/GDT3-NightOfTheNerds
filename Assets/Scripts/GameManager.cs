@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+    public static GameManager instance = null;
+
     public int level;
     public bool jump;
     public bool left;
@@ -22,6 +24,14 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(transform.gameObject);
     }
 
