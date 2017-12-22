@@ -13,15 +13,11 @@ public class ControlsManager : MonoBehaviour
 	
 	void Update()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            jump();
-        }
+ 
     }
 
     public void OnSubmit(string action)
     {     
-        Debug.Log("submit");
         if (action == "jump")
         {
             jump();
@@ -29,7 +25,6 @@ public class ControlsManager : MonoBehaviour
 
         else if(action == "shoot")
         {
-            Debug.Log(player.type);
             if (player.type == Player.PlayerType.Shooter && player.fired == false)
             {
                 player.Shoot();

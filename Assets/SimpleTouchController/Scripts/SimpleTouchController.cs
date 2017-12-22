@@ -16,8 +16,8 @@ public class SimpleTouchController : MonoBehaviour {
 	[SerializeField]
 	private RectTransform joystickArea;
 	private bool touchPresent = false;
-	public Vector2 movementVector;
-
+	private Vector2 movementVector;
+    
 
 	public Vector2 GetTouchPosition
 	{
@@ -48,11 +48,12 @@ public class SimpleTouchController : MonoBehaviour {
 			// convert the value between 1 0 to -1 +1
 			movementVector.x = ((1 - value.x) - 0.5f) * 2f;
 			movementVector.y = ((1 - value.y) - 0.5f) * 2f;
-
+            
 			if(TouchEvent != null)
 			{
 				TouchEvent(movementVector);
 			}
+
 		}
 
 	}
