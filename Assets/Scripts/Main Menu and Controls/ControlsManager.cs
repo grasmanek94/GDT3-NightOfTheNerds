@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ControlsManager : MonoBehaviour
 {
+    public GameObject playerObject;
     private Player player;
 	void Start()
     {
         Input.multiTouchEnabled = true;
-        player = GetComponentInChildren<Player>();
+        player = playerObject.GetComponent<Player>();
     }
 	
 	void Update()
