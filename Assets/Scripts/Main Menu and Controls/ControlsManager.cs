@@ -18,22 +18,27 @@ public class ControlsManager : MonoBehaviour
     }
 
     public void OnSubmit(string action)
-    {     
+    {
         if (action == "jump")
         {
-            jump();
-        }
-
-        else if(action == "shoot")
-        {
-            if (player.type == Player.PlayerType.Shooter && player.fired == false)
+            if (!player.dead)
             {
-                player.Shoot();
-                player.fired = true;
-            }
-        }
-    }
+                if (action == "jump")
+                {
+                    jump();
+                }
 
+                else if (action == "shoot")
+                {
+                    if (player.type == Player.PlayerType.Shooter && player.fired == false)
+                    { 
+                       player.Shoot();
+                       player.fired = true;                        
+                    }
+                }
+            }
+         }   
+     }
     public void jump()
     {
         if (player.isGrounded == true && player.jumped == false)
