@@ -41,7 +41,10 @@ public class GameManager : MonoBehaviour {
         if (currentCheckPoint >= 0 || checkPoints.Length > 0)
         {
             Player player = FindObjectOfType<Player>();
-            player.transform.position = GetCurrentCheckPoint().transform.position + Vector3.back;
+            if (GetCurrentCheckPoint() != null)
+            {
+                player.transform.position = GetCurrentCheckPoint().transform.position + Vector3.back;
+            }
         }
     }
 
