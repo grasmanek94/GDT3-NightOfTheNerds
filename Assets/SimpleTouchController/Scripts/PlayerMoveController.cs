@@ -8,10 +8,13 @@ public class PlayerMoveController : MonoBehaviour {
 	public float speedMovements = 5;
 
 	// PRIVATE
+
+	//private Rigidbody _rigidbody;
     private GameObject player;
 
 	void Awake()
 	{
+		//_rigidbody = GetComponent<Rigidbody>();
         player = gameObject.GetComponent<ControlsManager>().playerObject;
 	}
 

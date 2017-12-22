@@ -6,22 +6,19 @@ public class ControlsManager : MonoBehaviour
 {
     public GameObject playerObject;
     private Player player;
-	void Start()
+    void Start()
     {
         Input.multiTouchEnabled = true;
         player = playerObject.GetComponent<Player>();
     }
-	
-	void Update()
+
+    void Update()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            jump();
-        }
+
     }
 
     public void OnSubmit(string action)
-    {   
+    {
         if (!player.dead)
         {
             if (action == "jump")
@@ -31,7 +28,6 @@ public class ControlsManager : MonoBehaviour
 
             else if (action == "shoot")
             {
-                Debug.Log(player.type);
                 if (player.type == Player.PlayerType.Shooter && player.fired == false)
                 {
                     player.Shoot();
@@ -39,8 +35,8 @@ public class ControlsManager : MonoBehaviour
                 }
             }
         }
-    }
 
+    }
     public void jump()
     {
         if (player.isGrounded == true && player.jumped == false)
