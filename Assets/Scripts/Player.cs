@@ -396,7 +396,7 @@ public class Player : MonoBehaviour
     public void Respawn()
     {
 		if (gamemanager != null) {
-			gamemanager.Restart ();
+			gamemanager.Reload();
 		}
     }
 }

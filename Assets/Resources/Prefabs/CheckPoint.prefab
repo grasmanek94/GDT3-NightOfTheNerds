@@ -222,8 +222,6 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 77662727af7c64749b963c5f287831f9, type: 3}
   - {fileID: 21300000, guid: 9c7494649e147304b9d7c642678ef65a, type: 3}
-  - {fileID: 21300000, guid: 47f565e26e770934481f591b5463d30c, type: 3}
-  triggered: 0
   active: 0
   alpha:
     serializedVersion: 2

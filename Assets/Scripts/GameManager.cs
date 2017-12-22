@@ -17,8 +17,7 @@ public class GameManager : MonoBehaviour {
     public Button keyboardButton;
     public Button touchButton;
 
-    private CheckPoint[] allCheckPoints;
-    private List<int> checkPoints = new List<int>();
+    private CheckPoint[] checkPoints;
     public Vector3 startCheckPoint;
     public int currentCheckPoint = -1;
 
@@ -37,9 +36,9 @@ public class GameManager : MonoBehaviour {
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        allCheckPoints = FindObjectsOfType<CheckPoint>();
+        checkPoints = FindObjectsOfType<CheckPoint>();
         DisableCheckPoints();
-        if (currentCheckPoint >= 0)
+        if (currentCheckPoint >= 0 || checkPoints.Length > 0)
         {
             Player player = FindObjectOfType<Player>();
             player.transform.position = GetCurrentCheckPoint().transform.position + Vector3.back;
@@ -57,6 +56,12 @@ public class GameManager : MonoBehaviour {
     }
 
     public void Restart()
+    {
+        currentCheckPoint = -1;
+        SceneManager.LoadScene(level);
+    }
+
+    public void Reload()
     {
         SceneManager.LoadScene(level);
     }
@@ -130,46 +135,30 @@ public class GameManager : MonoBehaviour {
 		
     public void OnCheckPointTriggered(CheckPoint newCheckPoint)
     {
-        if (AddCheckPoint(newCheckPoint))
-        {
-            currentCheckPoint = newCheckPoint.id;
-            DisableCheckPoints();
-        }
+        currentCheckPoint = newCheckPoint.id;
+        DisableCheckPoints();
     }
 		
     private void DisableCheckPoints()
     {
-        Debug.Log("allCheckPoints: " + allCheckPoints.Length);
-        foreach (CheckPoint chk in allCheckPoints)
+        foreach (CheckPoint chk in checkPoints)
         {
-            if (checkPoints.Contains(chk.id) && chk.id != currentCheckPoint)
-            {
-                chk.active = false;
-                chk.triggered = true;
-            }
-            else if (checkPoints.Contains(chk.id) && chk.id == currentCheckPoint)
+            if (chk.id == currentCheckPoint)
             {
                 chk.active = true;
-                chk.triggered = true;
+            }
+            else
+            {
+                chk.active = false;
             }
             chk.SetSprite();
         }
     }
 
-    public bool AddCheckPoint(CheckPoint newCheckPoint)
-    {
-        if (!checkPoints.Contains(newCheckPoint.id))
-        {
-            checkPoints.Add(newCheckPoint.id);
-            return true;
-        }
-        return false;
-    }
-
     public CheckPoint GetCurrentCheckPoint()
     {
         CheckPoint chk = null;
-        foreach (CheckPoint cp in allCheckPoints)
+        foreach (CheckPoint cp in checkPoints)
         {
             if (cp.id.Equals(currentCheckPoint))
             {
