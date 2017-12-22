@@ -19,6 +19,7 @@ public class UIControl : MonoBehaviour
     public Text SelectedLevelText;
     public Text RouteSelectInstructionText;
     private string SceneName;
+    private GameManager gamemanager;
 
 	void Start()
     {
@@ -33,7 +34,15 @@ public class UIControl : MonoBehaviour
         Level2txt.text = "locked";*/
         PlayLevelBtn.SetActive(false);
         EllieContinueBtn.SetActive(false);
-	}
+        try
+        {
+            gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        }
+        catch
+        {
+            gamemanager = null;
+        }
+    }
 	
 	void Update()
     {
@@ -61,6 +70,7 @@ public class UIControl : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(SceneName))
         {
+            gamemanager.currentCheckPoint = -1;
             SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
         }     
     }
