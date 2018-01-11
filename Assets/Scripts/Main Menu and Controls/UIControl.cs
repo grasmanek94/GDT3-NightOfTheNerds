@@ -11,7 +11,6 @@ public class UIControl : MonoBehaviour
     public GameObject LevelSelector;
     public GameObject EllieSelector;
     public GameObject PlayLevelBtn;
-    public GameObject EllieContinueBtn;
     public GameObject ScanQRBtn;
     public Image Level1IMG;
     public Image Level2IMG;
@@ -19,7 +18,6 @@ public class UIControl : MonoBehaviour
     public Text Level1txt;
     public Text Level2txt;
     public Text SelectedLevelText;
-    public Text RouteSelectInstructionText;
 
     private QRController qr_controller;
     private string SceneName;
@@ -74,7 +72,6 @@ public class UIControl : MonoBehaviour
         Level2txt.text = "locked";
         Levels[1] = new level_info("Level 2", Level2IMG, Level2txt, false);*/
         PlayLevelBtn.SetActive(false);
-        EllieContinueBtn.SetActive(false);
 
         ScanQRBtn.SetActive(true);
         qr_controller = ScanQRBtn.GetComponent<QRController>();
@@ -122,19 +119,10 @@ public class UIControl : MonoBehaviour
         }     
     }
 
-    public void ev_EllieContinueBtn(Text Routename)
+    public void ev_EllieContinueBtn()
     {
-        if (Routename.text != "Select Route")
-        {
-            EllieSelector.SetActive(false);
-            LevelSelector.SetActive(true);
-        }
-    }
-
-    public void ev_routeSelected()
-    {
-        EllieContinueBtn.SetActive(true);
-        RouteSelectInstructionText.text = "";
+         EllieSelector.SetActive(false);
+         LevelSelector.SetActive(true);
     }
     
     public void SelectLevel(Image level)
