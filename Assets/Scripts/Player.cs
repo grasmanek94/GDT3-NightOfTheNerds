@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public bool isMoving;
     public float maxSpeed;
     public GameObject actionButton;
+	public Image life;
 
     public enum BulletType { SingleLaser, DualLaser, TrippleLaser };
 	public enum PlayerType { Normal, Upgraded, Shooter };
@@ -42,6 +43,14 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+		try
+		{
+			life = GameObject.Find("Life").gameObject.GetComponent<Image>();
+		}
+		catch
+		{
+			life = null;
+		}
         try
         {
             actionButton = GameObject.Find("BtnAction").gameObject;
@@ -356,11 +365,15 @@ public class Player : MonoBehaviour
             if (type == Player.PlayerType.Normal)
             {
                 this.GetComponents<AudioSource>()[2].Play();
+				Texture2D tex = (Texture2D)Resources.Load("Sprites/Objects/HeartZero");
+				life.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(128, 64), 100);
                 StartCoroutine(Death());
             }
             else if (type == Player.PlayerType.Upgraded)
             {
                 this.GetComponents<AudioSource>()[0].Play();
+				Texture2D tex = (Texture2D)Resources.Load("Sprites/Objects/HeartOne");
+				life.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(128, 64), 100);
                 type = Player.PlayerType.Normal;
                 Destroy(upgradeParticles);
                 invulnerable = true;
@@ -369,6 +382,8 @@ public class Player : MonoBehaviour
 			else if (type == Player.PlayerType.Shooter)
 			{
 				this.GetComponents<AudioSource>()[2].Play();
+				Texture2D tex = (Texture2D)Resources.Load("Sprites/Objects/HeartOne");
+				life.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(128, 64), 100);
                 type = PlayerType.Normal;
                 StartCoroutine(Death());
 			}
@@ -392,6 +407,8 @@ public class Player : MonoBehaviour
                 this.actionButton.SetActive(false);
             }
             this.GetComponents<AudioSource>()[1].Play();
+			Texture2D tex = (Texture2D)Resources.Load("Sprites/Objects/HeartTwo");
+			life.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(128, 64), 100);
             type = PlayerType.Upgraded;
             upgradeParticles = (GameObject)Instantiate(Resources.Load("Prefabs/PowerupParticles"));
             upgradeParticles.transform.SetParent(this.transform);
