@@ -23,6 +23,8 @@ public class UIControl : MonoBehaviour
     private string SceneName;
     private WebTalk webtalk;
 
+    private bool routeSelected = false;
+
     private class level_info
     {
         public string name;
@@ -101,12 +103,22 @@ public class UIControl : MonoBehaviour
     public void ev_StartGameBtn()
     {
         MainMenu.SetActive(false);
-        EllieSelector.SetActive(true);
+
+        if (!routeSelected)
+        {
+            EllieSelector.SetActive(true);
+        }
+
+        else
+        {
+            LevelSelector.SetActive(true);
+        }
     }
 
     public void ev_ReturnToMainBtn()
     {
         LevelSelector.SetActive(false);
+        EllieSelector.SetActive(false);
         MainMenu.SetActive(true);
     }
 
@@ -121,10 +133,17 @@ public class UIControl : MonoBehaviour
 
     public void ev_EllieContinueBtn()
     {
-         EllieSelector.SetActive(false);
-         LevelSelector.SetActive(true);
+        EllieSelector.SetActive(false);
+        LevelSelector.SetActive(true);
+        routeSelected = true;
     }
-    
+
+    public void ev_OtherRouteBtn()
+    {
+        LevelSelector.SetActive(false);
+        EllieSelector.SetActive(true);
+    }
+
     public void SelectLevel(Image level)
     {
         SelectedLevel.color = Color.white;
